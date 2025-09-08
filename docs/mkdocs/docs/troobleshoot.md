@@ -87,7 +87,7 @@ Message: Digest initialization failed: initialization error
 TASK [groups_domains : synchronizes all domains] *******************************************************************************************************************************************************************************************************************************
 changed: [dc03]
 changed: [dc01]
-fatal: [dc02]: FAILED! => {"changed": true, "cmd": "repadmin /syncall /Ade", "delta": "0:00:01.090773", "end": "2023-10-18 09:30:26.016579", "msg": "non-zero return code", "rc": 1, "start": "2023-10-18 09:30:24.925805", "stderr": "", "stderr_lines": [], "stdout": "Syncing all NC's held on winterfell.\r\r\nSyncing partition: DC=north,DC=sevenkingdoms,DC=local\r\r\nCALLBACK MESSAGE: Error contacting server CN=NTDS Settings,CN=WINTERFELL,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=sevenkingdoms,DC=local (network error): 1722 (0x6ba):\r\r\n    The RPC server is unavailable.\r\r\n\r\r\nSyncAll exited with fatal Win32 error: 8440 (0x20f8):\r\r\n    The naming context specified for this replication operation is invalid.\r\r\n", "stdout_lines": ["Syncing all NC's held on winterfell.", "", "Syncing partition: DC=north,DC=sevenkingdoms,DC=local", "", "CALLBACK MESSAGE: Error contacting server CN=NTDS Settings,CN=WINTERFELL,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=sevenkingdoms,DC=local (network error): 1722 (0x6ba):", "", "    The RPC server is unavailable.", "", "", "", "SyncAll exited with fatal Win32 error: 8440 (0x20f8):", "", "    The naming context specified for this replication operation is invalid.", ""]}
+fatal: [dc02]: FAILED! => {"changed": true, "cmd": "repadmin /syncall /Ade", "delta": "0:00:01.090773", "end": "2023-10-18 09:30:26.016579", "msg": "non-zero return code", "rc": 1, "start": "2023-10-18 09:30:24.925805", "stderr": "", "stderr_lines": [], "stdout": "Syncing all NC's held on financa-dc.\r\r\nSyncing partition: DC=financa,DC=pretera,DC=local\r\r\nCALLBACK MESSAGE: Error contacting server CN=NTDS Settings,CN=financa-dc,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=pretera,DC=local (network error): 1722 (0x6ba):\r\r\n    The RPC server is unavailable.\r\r\n\r\r\nSyncAll exited with fatal Win32 error: 8440 (0x20f8):\r\r\n    The naming context specified for this replication operation is invalid.\r\r\n", "stdout_lines": ["Syncing all NC's held on financa-dc.", "", "Syncing partition: DC=financa,DC=pretera,DC=local", "", "CALLBACK MESSAGE: Error contacting server CN=NTDS Settings,CN=financa-dc,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configuration,DC=pretera,DC=local (network error): 1722 (0x6ba):", "", "    The RPC server is unavailable.", "", "", "", "SyncAll exited with fatal Win32 error: 8440 (0x20f8):", "", "    The naming context specified for this replication operation is invalid.", ""]}
 ```
 
 - relaunch install
@@ -114,7 +114,7 @@ vagrant reload GOAD-SRV03 --provisioning
 
 ```
 An exception occurred during task execution. To see the full traceback, use -vvv. The error was:    at Microsoft.ActiveDirectory.Management.Commands.ADCmdletBase`1.BeginProcessing()
-failed: [dc02] (item={'key': 'AcrossTheSea', 'value': ['essos.local\\daenerys.targaryen']}) => {"ansible_loop_var": "item", "attempts": 3, "changed": false, "item": {"key": "AcrossTheSea", "value": ["essos.local\\daenerys.targaryen"]}, "msg": "Unhandled exception while executing module: The server has rejected the client credentials."}
+failed: [dc02] (item={'key': 'AcrossTheSea', 'value': ['siguria.local\\damian.ekspertet']}) => {"ansible_loop_var": "item", "attempts": 3, "changed": false, "item": {"key": "AcrossTheSea", "value": ["siguria.local\\damian.ekspertet"]}, "msg": "Unhandled exception while executing module: The server has rejected the client credentials."}
 ```
 
 - something go wrong with the trust, all the links are not fully establish
@@ -128,7 +128,7 @@ failed: [dc02] (item={'key': 'AcrossTheSea', 'value': ['essos.local\\daenerys.ta
 
 ```bash
 An exception occurred during task execution. To see the full traceback, use -vvv. The error was:    at Microsoft.ActiveDirectory.Management.Commands.ADCmdletBase`1.BeginProcessing()
-failed: [192.168.56.xx] (item={'key': 'DragonsFriends', 'value': ['sevenkingdoms.local\\tyron.lannister', 'essos.local\\daenerys.targaryen']}) => {"ansible_loop_var": "item", "attempts": 3, "changed": false, "item": {"key": "DragonsFriends", "value": ["north.sevenkingdoms.local\\jon.snow", "sevenkingdoms.local\\tyron.lannister", "essos.local\\daenerys.targaryen"]}, "msg": "Unhandled exception while executing module: Either the target name is incorrect or the server has rejected the client credentials."}
+failed: [192.168.56.xx] (item={'key': 'DrejtoritFriends', 'value': ['pretera.local\\tritan.inxhinieri', 'siguria.local\\damian.ekspertet']}) => {"ansible_loop_var": "item", "attempts": 3, "changed": false, "item": {"key": "DrejtoritFriends", "value": ["financa.pretera.local\\jon.Sina", "pretera.local\\tritan.inxhinieri", "siguria.local\\damian.ekspertet"]}, "msg": "Unhandled exception while executing module: Either the target name is incorrect or the server has rejected the client credentials."}
 ```
 
 ## Error Add-Warning
@@ -139,7 +139,7 @@ failed: [192.168.56.xx] (item={'key': 'DragonsFriends', 'value': ['sevenkingdoms
 
 ```bash
 An exception occurred during task execution. To see the full traceback, use -vvv. The error was: at , : line 475
-failed: [192.168.56.11] (item={'key': 'arya.stark', 'value': {'firstname': 'Arya', 'surname': 'Stark',
+failed: [192.168.56.11] (item={'key': 'Anisa.Prtr', 'value': {'firstname': 'Anisa', 'surname': 'Prtr',
 ...
 "msg": "Unhandled exception while executing module: The term 'Add-Warning' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again."}+
 ```
@@ -188,7 +188,7 @@ ansible-galaxy collection install ansible.windows --force
 ## winrm
 
 ```bash
-PLAY [DC01 - kingslanding] *******************************************************
+PLAY [DC01 - pretera-dc1] *******************************************************
 
  
 
@@ -220,9 +220,9 @@ solution : wait or if crashed then re-run install
 ## Domain controller : ensure Users are present 
 
 ```bash
-TASK [domain_controller : Ensure that Users presents in ou=<kingdom>,dc=SEVENKINGDOMS,dc=local] ***************************************************************************
+TASK [domain_controller : Ensure that Users presents in ou=<kingdom>,dc=pretera,dc=local] ***************************************************************************
 An exception occurred during task execution. To see the full traceback, use -vvv. The error was:    at Microsoft.ActiveDirectory.Management.Commands.ADCmdletBase`1.ProcessRecord()
-failed: [192.168.56.10] (item={u'key': u'lord.varys', u'value': {u'city': u"King's Landing", u'password': u'_W1sper_$', u'name': u'Lord Varys', u'groups': u'Small Council', u'path': u'OU=Users,OU=Crownlands,OU=kingdoms,DC=SEVENKINGDOMS,DC=local'}}) => {"ansible_loop_var": "item", "changed": false, "item": {"key": "lord.varys", "value": {"city": "King's Landing", "groups": "Small Council", "name": "Lord Varys", "password": "_W1sper_$", "path": "OU=Users,OU=Crownlands,OU=kingdoms,DC=SEVENKINGDOMS,DC=local"}}, "msg": "Unhandled exception while executing module: An unspecified error has occurred"}
+failed: [192.168.56.10] (item={u'key': u'lord.krasniqi', u'value': {u'city': u"King's Landing", u'password': u'_W1sper_$', u'name': u'Lord krasniqi', u'groups': u'Bordi Drejtues', u'path': u'OU=Users,OU=bordi,OU=kingdoms,DC=pretera,DC=local'}}) => {"ansible_loop_var": "item", "changed": false, "item": {"key": "lord.krasniqi", "value": {"city": "King's Landing", "groups": "Bordi Drejtues", "name": "Lord krasniqi", "password": "_W1sper_$", "path": "OU=Users,OU=bordi,OU=kingdoms,DC=pretera,DC=local"}}, "msg": "Unhandled exception while executing module: An unspecified error has occurred"}
 
 ```
  solution : re-run install

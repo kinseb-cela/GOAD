@@ -1,6 +1,6 @@
 "dc01" = {
   name               = "dc01"
-  domain             = "sevenkingdoms.local"
+  domain             = "pretera.local"
   windows_sku        = "2019-Datacenter"
   ami                = "ami-03440f0d88fea1060"
   instance_type      = "t2.medium"
@@ -9,7 +9,7 @@
 }
 "dc02" = {
   name               = "dc02"
-  domain             = "north.sevenkingdoms.local"
+  domain             = "financa.pretera.local"
   windows_sku        = "2019-Datacenter"
   ami                = "ami-03440f0d88fea1060"
   instance_type      = "t2.medium"
@@ -18,7 +18,7 @@
 }
 "srv02" = {
   name               = "srv02"
-  domain             = "north.sevenkingdoms.local"
+  domain             = "financa.pretera.local"
   windows_sku        = "2019-Datacenter"
   ami                = "ami-03440f0d88fea1060"
   instance_type      = "t2.medium"

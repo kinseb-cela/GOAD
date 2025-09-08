@@ -183,17 +183,17 @@ srv02
             "sa_password": "sa_P@ssw0rd!Ess0s",
             "svcaccount" : "sql_svc",
             "sysadmins" : [
-                "ESSOS\\khal.drogo"
+                "siguria\\Keljan.Dobra"
             ],
             "executeaslogin" : {
-                "ESSOS\\jorah.mormont" : "sa"
+                "siguria\\jorah.Importet" : "sa"
             },
             "executeasuser" : {},
             "linked_servers": {
-                "CASTELBLACK" : {
-                    "data_src": "castelblack.north.sevenkingdoms.local",
+                "financa-srv-2" : {
+                    "data_src": "financa-srv-2.financa.pretera.local",
                     "users_mapping": [
-                        {"local_login": "ESSOS\\khal.drogo","remote_login": "sa", "remote_password": "Sup1_sa_P@ssw0rd!"}
+                        {"local_login": "siguria\\Keljan.Dobra","remote_login": "sa", "remote_password": "Sup1_sa_P@ssw0rd!"}
                     ]
                 }
             }
@@ -256,43 +256,43 @@ srv02
 #### organisation_units (optional)
 - To add custom organisation units (OU)
 
-- Example on sevenkingdoms.local :
+- Example on pretera.local :
 ```
 "domains" : {
-    "sevenkingdoms.local" : {
+    "pretera.local" : {
             ...
             "organisation_units" : {
-                "Vale"        : { "path" : "DC=sevenkingdoms,DC=local"},
-                "IronIslands" : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Riverlands"  : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Crownlands"  : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Stormlands"  : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Westerlands" : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Reach"       : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Dorne"       : { "path" : "DC=sevenkingdoms,DC=local"}
+                "Vale"        : { "path" : "DC=pretera,DC=local"},
+                "IronIslands" : { "path" : "DC=pretera,DC=local"},
+                "Riverlands"  : { "path" : "DC=pretera,DC=local"},
+                "bordi"  : { "path" : "DC=pretera,DC=local"},
+                "ekonomistet"  : { "path" : "DC=pretera,DC=local"},
+                "inxhinieret" : { "path" : "DC=pretera,DC=local"},
+                "Reach"       : { "path" : "DC=pretera,DC=local"},
+                "Dorne"       : { "path" : "DC=pretera,DC=local"}
             },
 ```
 
 #### multi_domain_groups_member (optional)
 - Add a user from another domain into a group (must be a domainlocal group)
 
-- Example on sevenkingdoms.local :
+- Example on pretera.local :
 
 ```
 "domains" : {
-    "sevenkingdoms.local" : {
+    "pretera.local" : {
             ...
             "groups" : {
                 ...
                 "domainlocal" : {
                     "AcrossTheSea" : {
-                        "path" : "CN=Users,DC=North,DC=sevenkingdoms,DC=local"
+                        "path" : "CN=Users,DC=financa,DC=pretera,DC=local"
                     }
                 }
             },
             "multi_domain_groups_member" : {
                 "AcrossTheSea" : [
-                    "essos.local\\daenerys.targaryen"
+                    "siguria.local\\damian.ekspertet"
                 ]
             },
 ```
@@ -300,17 +300,17 @@ srv02
 #### acls (optional)
 - To create ace relations in your active directory
 
-- Example on sevenkingdoms.local
+- Example on pretera.local
 ```
 "domains" : {
-    "sevenkingdoms.local" : {
+    "pretera.local" : {
         ...
         "acls" : {
-            "GenericAll_khal_viserys" : {"for": "khal.drogo", "to": "viserys.targaryen", "right": "GenericAll", "inheritance": "None"},
-            "GenericAll_spy_jorah" : {"for": "Spys", "to": "jorah.mormont", "right": "GenericAll", "inheritance": "None"},
-            "GenericAll_khal_esc4" : {"for": "khal.drogo", "to": "CN=ESC4,CN=Certificate Templates,CN=Public Key Services,CN=Services,CN=Configuration,DC=essos,DC=local", "right": "GenericAll", "inheritance": "None"},
-            "WriteProperty_petyer_domadmin" : {"for": "viserys.targaryen", "to": "jorah.mormont", "right": "WriteProperty", "inheritance": "All"},
-            "GenericWrite_DragonsFriends_braavos" : {"for": "DragonsFriends", "to": "braavoos$", "right": "GenericWrite", "inheritance": "None"}
+            "GenericAll_Keljan_visjan" : {"for": "Keljan.Dobra", "to": "visjan.ekspertet", "right": "GenericAll", "inheritance": "None"},
+            "GenericAll_spy_jorah" : {"for": "Spys", "to": "jorah.Importet", "right": "GenericAll", "inheritance": "None"},
+            "GenericAll_Keljan_esc4" : {"for": "Keljan.Dobra", "to": "CN=ESC4,CN=Certificate Templates,CN=Public Key Services,CN=Services,CN=Configuration,DC=siguria,DC=local", "right": "GenericAll", "inheritance": "None"},
+            "WriteProperty_petrit_domadmin" : {"for": "visjan.ekspertet", "to": "jorah.Importet", "right": "WriteProperty", "inheritance": "All"},
+            "GenericWrite_DrejtoritFriends_siguria-srv-1" : {"for": "DrejtoritFriends", "to": "braavoos$", "right": "GenericWrite", "inheritance": "None"}
         },
 ```
 
@@ -348,8 +348,8 @@ srv02
 
 ```
 "acls" : {
-    "anonymous_rpc" : {"for": "NT AUTHORITY\\ANONYMOUS LOGON", "to": "DC=North,DC=sevenkingdoms,DC=local", "right": "ReadProperty", "inheritance": "All"},
-    "anonymous_rpc2" : {"for": "NT AUTHORITY\\ANONYMOUS LOGON", "to": "DC=North,DC=sevenkingdoms,DC=local", "right": "GenericExecute", "inheritance": "All"}
+    "anonymous_rpc" : {"for": "NT AUTHORITY\\ANONYMOUS LOGON", "to": "DC=financa,DC=pretera,DC=local", "right": "ReadProperty", "inheritance": "All"},
+    "anonymous_rpc2" : {"for": "NT AUTHORITY\\ANONYMOUS LOGON", "to": "DC=financa,DC=pretera,DC=local", "right": "GenericExecute", "inheritance": "All"}
 },
 ```
 
@@ -361,12 +361,12 @@ srv02
 
 ```
 "domains" : {
-    "north.sevenkingdoms.local" : {
+    "financa.pretera.local" : {
         ...
-        "laps_path": "OU=Laps,DC=north,DC=sevenkingdoms,DC=local",
+        "laps_path": "OU=Laps,DC=financa,DC=pretera,DC=local",
         ...
         "laps_readers": [
-                "jorah.mormont",
+                "jorah.Importet",
                 "Spys"
             ],
         ...
@@ -379,14 +379,14 @@ srv02
 - In case of external trust trust key must be setup in each domains
 ```
     "domains" : {
-        "sevenkingdoms.local" : {
+        "pretera.local" : {
             ...
-            "trust" : "essos.local",
+            "trust" : "siguria.local",
             ...
         },
-        "essos.local" : {
+        "siguria.local" : {
             ...
-            "trust" : "sevenkingdoms.local",
+            "trust" : "pretera.local",
 ```
 
 #### ca_server (for adcs_customtemplates role)
@@ -394,7 +394,7 @@ srv02
 
 ```
    "domains" : {
-        "essos.local" : {
+        "siguria.local" : {
             ...
-            "ca_server": "Braavos",
+            "ca_server": "siguria-srv-1",
 ```

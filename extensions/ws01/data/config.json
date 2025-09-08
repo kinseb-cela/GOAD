@@ -5,15 +5,15 @@
               "hostname" : "casterlyrock",
               "type" : "workstation",
               "local_admin_password": "EP+xh7Rk6j90",
-              "domain" : "sevenkingdoms.local",
-              "path" : "DC=sevenkingdoms,DC=local",
+              "domain" : "pretera.local",
+              "path" : "DC=pretera,DC=local",
               "local_groups" : {
                   "Administrators" : [
-                      "sevenkingdoms\\tywin.lannister",
-                      "sevenkingdoms\\jaime.lannister"
+                      "pretera\\Tino.inxhinieri",
+                      "pretera\\jani.inxhinieri"
                   ],
                   "Remote Desktop Users" : [
-                      "sevenkingdoms\\Lannister"
+                      "pretera\\inxhinieri"
                   ]
               },
               "security": ["enable_run_as_ppl", "asr", "powershell_restrict"],

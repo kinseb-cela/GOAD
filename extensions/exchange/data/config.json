@@ -5,27 +5,27 @@
                 "hostname": "the-eyrie",
                 "type": "server",
                 "local_admin_password": "FP.xh5Fk9Z1c",
-                "domain": "sevenkingdoms.local",
-                "path": "DC=sevenkingdoms,DC=local",
+                "domain": "pretera.local",
+                "path": "DC=pretera,DC=local",
                 "local_groups": {
                     "Administrators": [
-                        "sevenkingdoms\\lysa.arryn"
+                        "pretera\\lysa.arryn"
                     ],
                     "Remote Desktop Users": [
-                        "sevenkingdoms\\Arryn"
+                        "pretera\\Arryn"
                     ]
                 }
             }
         },
         "domains": {
-            "sevenkingdoms.local": {
+            "pretera.local": {
                 "organisation_units": {},
                 "groups": {
                     "universal": {},
                     "global": {
                         "Arryn": {
                             "managed_by": "lysa.arryn",
-                            "path": "OU=Vale,DC=sevenkingdoms,DC=local"
+                            "path": "OU=Vale,DC=pretera,DC=local"
                         }
                     },
                     "domainlocal": {}
@@ -40,7 +40,7 @@
                         "groups": [
                             "Arryn"
                         ],
-                        "path": "OU=Vale,DC=sevenkingdoms,DC=local"
+                        "path": "OU=Vale,DC=pretera,DC=local"
                     },
                     "robin.arryn": {
                         "firstname": "Robin",
@@ -51,7 +51,7 @@
                         "groups": [
                             "Arryn"
                         ],
-                        "path": "OU=Vale,DC=sevenkingdoms,DC=local"
+                        "path": "OU=Vale,DC=pretera,DC=local"
                     }
                 }
             }

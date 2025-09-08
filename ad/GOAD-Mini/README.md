@@ -1,3 +1,3 @@
 # MINIGOAD
 
-Minimal lab with only sevenkingdoms.local domain and kingslanding DC, no more
+Minimal lab with only pretera.local domain and pretera-dc1 DC, no more

@@ -1,1 +1,1 @@
-netdom trust sevenkingdoms.local /d:essos.local /enablesidhistory:yes
+netdom trust pretera.local /d:siguria.local /enablesidhistory:yes

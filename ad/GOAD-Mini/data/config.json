@@ -2,20 +2,20 @@
 "lab" : {
     "hosts" : {
         "dc01" : {
-            "hostname" : "kingslanding",
+            "hostname" : "pretera-dc1",
             "type" : "dc",
             "local_admin_password": "8dCT-DJjgScp",
-            "domain" : "sevenkingdoms.local",
-            "path" : "DC=sevenkingdoms,DC=local",
+            "domain" : "pretera.local",
+            "path" : "DC=pretera,DC=local",
             "local_groups" : {
                 "Administrators" : [
-                    "sevenkingdoms\\robert.baratheon",
-                    "sevenkingdoms\\cersei.lannister",
-                    "sevenkingdoms\\DragonRider"
+                    "pretera\\robert.ekonomisti",
+                    "pretera\\cezar.inxhinieri",
+                    "pretera\\HelpDesk"
                 ],
                 "Remote Desktop Users" : [
-                    "sevenkingdoms\\Small Council",
-                    "sevenkingdoms\\Baratheon"
+                    "pretera\\Bordi Drejtues",
+                    "pretera\\ekonomisti"
                 ]
             },
             "scripts" : [],
@@ -39,172 +39,172 @@
             },
             "security": ["account_is_sensitive"],
             "security_vars": {
-                "account_is_sensitive" : { "renly": {"account" : "renly.baratheon"} }
+                "account_is_sensitive" : { "reni": {"account" : "reni.ekonomisti"} }
             }
         }
     },
     "domains" : {
-        "sevenkingdoms.local" : {
+        "pretera.local" : {
             "dc": "dc01",
             "domain_password" : "8dCT-DJjgScp",
-            "netbios_name": "SEVENKINGDOMS",
+            "netbios_name": "pretera",
             "trust" : "",
-            "laps_path": "OU=Laps,DC=sevenkingdoms,DC=local",
+            "laps_path": "OU=Laps,DC=pretera,DC=local",
             "organisation_units" : {
-                "Vale"        : { "path" : "DC=sevenkingdoms,DC=local"},
-                "IronIslands" : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Riverlands"  : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Crownlands"  : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Stormlands"  : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Westerlands" : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Reach"       : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Dorne"       : { "path" : "DC=sevenkingdoms,DC=local"}
+                "Vale"        : { "path" : "DC=pretera,DC=local"},
+                "IronIslands" : { "path" : "DC=pretera,DC=local"},
+                "Riverlands"  : { "path" : "DC=pretera,DC=local"},
+                "bordi"  : { "path" : "DC=pretera,DC=local"},
+                "ekonomistet"  : { "path" : "DC=pretera,DC=local"},
+                "inxhinieret" : { "path" : "DC=pretera,DC=local"},
+                "Reach"       : { "path" : "DC=pretera,DC=local"},
+                "Dorne"       : { "path" : "DC=pretera,DC=local"}
             },
             "groups" : {
                 "universal" : {},
                 "global" : {
-                    "Lannister" : {
-                        "managed_by" : "tywin.lannister",
-                        "path" : "OU=Westerlands,DC=sevenkingdoms,DC=local"
+                    "inxhinieri" : {
+                        "managed_by" : "Tino.inxhinieri",
+                        "path" : "OU=inxhinieret,DC=pretera,DC=local"
                     },
-                    "Baratheon" : {
-                        "managed_by" : "robert.baratheon",
-                        "path" : "OU=Stormlands,DC=sevenkingdoms,DC=local"
+                    "ekonomisti" : {
+                        "managed_by" : "robert.ekonomisti",
+                        "path" : "OU=ekonomistet,DC=pretera,DC=local"
                     },
-                    "Small Council" : {
-                        "path" : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "Bordi Drejtues" : {
+                        "path" : "OU=bordi,DC=pretera,DC=local"
                     },
-                    "DragonStone" : {
-                        "path" : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "Ekzekutivi" : {
+                        "path" : "OU=bordi,DC=pretera,DC=local"
                     },
-                    "KingsGuard" : {
-                        "path" : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "Burimet Njerezore" : {
+                        "path" : "OU=bordi,DC=pretera,DC=local"
                     },
-                    "DragonRider" : {
-                        "path" : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "HelpDesk" : {
+                        "path" : "OU=bordi,DC=pretera,DC=local"
                     }
                 },
                 "domainlocal" : {
-                    "AcrossTheNarrowSea" : {
-                        "path" : "CN=Users,DC=sevenkingdoms,DC=local"
+                    "Webmaster" : {
+                        "path" : "CN=Users,DC=pretera,DC=local"
                     }
                 }
             },
             "multi_domain_groups_member" : {
             },
             "acls" : {
-                "forcechangepassword_tywin_jaime" : {"for": "tywin.lannister", "to": "jaime.lannister", "right": "Ext-User-Force-Change-Password", "inheritance": "None"},
-                "GenericWrite_on_user_jaimie_joffrey" : {"for": "jaime.lannister", "to": "joffrey.baratheon", "right": "GenericWrite", "inheritance": "None"},
-                "Writedacl_joffrey_tyron" : {"for": "joffrey.baratheon", "to": "tyron.lannister", "right": "WriteDacl", "inheritance": "None"},
-                "self-self-membership-on-group_tyron_small_council" : {"for": "tyron.lannister", "to": "Small Council", "right": "Ext-Self-Self-Membership", "inheritance": "None"},
-                "addmember_smallcouncil_DragonStone" : {"for": "Small Council", "to": "DragonStone", "right": "Ext-Write-Self-Membership", "inheritance": "All"},
-                "write_owner_dragonstone_kingsguard" : {"for": "DragonStone", "to": "KingsGuard", "right": "WriteOwner", "inheritance": "None"},
-                "GenericAll_kingsguard_stanis" : {"for": "KingsGuard", "to": "stannis.baratheon", "right": "GenericAll", "inheritance": "None"},
-                "GenericAll_stanis_dc" : {"for": "stannis.baratheon", "to": "kingslanding$", "right": "GenericAll", "inheritance": "None"},
-                "GenericAll_group_acrrosdom_dc" : {"for": "AcrossTheNarrowSea", "to": "kingslanding$", "right": "GenericAll", "inheritance": "None"},
-                "GenericAll_varys_domadmin" : {"for": "lord.varys", "to": "Domain Admins", "right": "GenericAll", "inheritance": "None"},
-                "GenericAll_varys_domadmin_holder" : {"for": "lord.varys", "to": "CN=AdminSDHolder,CN=System,DC=sevenkingdoms,DC=local", "right": "GenericAll", "inheritance": "None"},
-                "WriteDACL_renly_Crownlands" : {"for": "renly.baratheon", "to": "OU=Crownlands,DC=sevenkingdoms,DC=local", "right": "WriteDacl", "inheritance": "None"}
+                "forcechangepassword_Tino_jani" : {"for": "Tino.inxhinieri", "to": "jani.inxhinieri", "right": "Ext-User-Force-Change-Password", "inheritance": "None"},
+                "GenericWrite_on_user_jaimie_joan" : {"for": "jani.inxhinieri", "to": "joan.ekonomisti", "right": "GenericWrite", "inheritance": "None"},
+                "Writedacl_joan_tritan" : {"for": "joan.ekonomisti", "to": "tritan.inxhinieri", "right": "WriteDacl", "inheritance": "None"},
+                "self-self-membership-on-group_tritan_small_council" : {"for": "tritan.inxhinieri", "to": "Bordi Drejtues", "right": "Ext-Self-Self-Membership", "inheritance": "None"},
+                "addmember_smallcouncil_Ekzekutivi" : {"for": "Bordi Drejtues", "to": "Ekzekutivi", "right": "Ext-Write-Self-Membership", "inheritance": "All"},
+                "write_owner_Ekzekutivi_Burimet Njerezore" : {"for": "Ekzekutivi", "to": "Burimet Njerezore", "right": "WriteOwner", "inheritance": "None"},
+                "GenericAll_Burimet Njerezore_stanis" : {"for": "Burimet Njerezore", "to": "shkelqim.ekonomisti", "right": "GenericAll", "inheritance": "None"},
+                "GenericAll_stanis_dc" : {"for": "shkelqim.ekonomisti", "to": "pretera-dc1$", "right": "GenericAll", "inheritance": "None"},
+                "GenericAll_group_acrrosdom_dc" : {"for": "Webmaster", "to": "pretera-dc1$", "right": "GenericAll", "inheritance": "None"},
+                "GenericAll_krasniqi_domadmin" : {"for": "lord.krasniqi", "to": "Domain Admins", "right": "GenericAll", "inheritance": "None"},
+                "GenericAll_krasniqi_domadmin_holder" : {"for": "lord.krasniqi", "to": "CN=AdminSDHolder,CN=System,DC=pretera,DC=local", "right": "GenericAll", "inheritance": "None"},
+                "WriteDACL_reni_bordi" : {"for": "reni.ekonomisti", "to": "OU=bordi,DC=pretera,DC=local", "right": "WriteDacl", "inheritance": "None"}
             },
             "users" : {
-                "tywin.lannister" : {
-                    "firstname"   : "Tywin",
-                    "surname"     : "Lanister",
+                "Tino.inxhinieri" : {
+                    "firstname"   : "Tino",
+                    "surname"     : "Engineer",
                     "password"    : "powerkingftw135",
                     "city"        : "Casterly Rock",
-                    "description" : "Tywin Lanister",
-                    "groups"      : ["Lannister"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "Tino Engineer",
+                    "groups"      : ["inxhinieri"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "jaime.lannister" : {
-                    "firstname"   : "Jaime",
-                    "surname"     : "Lanister",
-                    "password"    : "cersei",
+                "jani.inxhinieri" : {
+                    "firstname"   : "jani",
+                    "surname"     : "Engineer",
+                    "password"    : "cezar",
                     "city"        : "King's Landing",
-                    "description" : "Jaime Lanister",
-                    "groups"      : ["Lannister"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "jani Engineer",
+                    "groups"      : ["inxhinieri"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "cersei.lannister" : {
-                    "firstname"   : "Cersei",
-                    "surname"     : "Lanister",
-                    "password"    : "il0vejaime",
+                "cezar.inxhinieri" : {
+                    "firstname"   : "cezar",
+                    "surname"     : "Engineer",
+                    "password"    : "il0vejani",
                     "city"        : "King's Landing",
-                    "description" : "Cersei Lanister",
-                    "groups"      : ["Lannister","Baratheon","Domain Admins","Small Council"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "cezar Engineer",
+                    "groups"      : ["inxhinieri","ekonomisti","Domain Admins","Bordi Drejtues"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "tyron.lannister" : {
-                    "firstname"   : "Tyron",
-                    "surname"     : "Lanister",
+                "tritan.inxhinieri" : {
+                    "firstname"   : "tritan",
+                    "surname"     : "Engineer",
                     "password"    : "Alc00L&S3x",
                     "city"        : "King's Landing",
-                    "description" : "Tyron Lanister",
-                    "groups"      : ["Lannister"],
-                    "path"        : "OU=Westerlands,DC=sevenkingdoms,DC=local"
+                    "description" : "tritan Engineer",
+                    "groups"      : ["inxhinieri"],
+                    "path"        : "OU=inxhinieret,DC=pretera,DC=local"
                 },
-                "robert.baratheon" : {
+                "robert.ekonomisti" : {
                     "firstname"   : "Robert",
-                    "surname"     : "Baratheon",
+                    "surname"     : "ekonomisti",
                     "password"    : "iamthekingoftheworld",
                     "city"        : "King's Landing",
-                    "description" : "Robert Lanister",
-                    "groups"      : ["Baratheon","Domain Admins","Small Council","Protected Users"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "Robert Engineer",
+                    "groups"      : ["ekonomisti","Domain Admins","Bordi Drejtues","Protected Users"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "joffrey.baratheon" : {
-                    "firstname"   : "Joffrey",
-                    "surname"     : "Baratheon",
+                "joan.ekonomisti" : {
+                    "firstname"   : "joan",
+                    "surname"     : "ekonomisti",
                     "password"    : "1killerlion",
                     "city"        : "King's Landing",
-                    "description" : "Joffrey Baratheon",
-                    "groups"      : ["Baratheon","Lannister"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "joan ekonomisti",
+                    "groups"      : ["ekonomisti","inxhinieri"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "renly.baratheon" : {
-                    "firstname"   : "Renly",
-                    "surname"     : "Baratheon",
+                "reni.ekonomisti" : {
+                    "firstname"   : "reni",
+                    "surname"     : "ekonomisti",
                     "password"    : "lorastyrell",
                     "city"        : "King's Landing",
-                    "description" : "Renly Baratheon",
-                    "groups"      : ["Baratheon","Small Council"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "reni ekonomisti",
+                    "groups"      : ["ekonomisti","Bordi Drejtues"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "stannis.baratheon" : {
-                    "firstname"   : "Stannis",
-                    "surname"     : "Baratheon",
+                "shkelqim.ekonomisti" : {
+                    "firstname"   : "shkelqim",
+                    "surname"     : "ekonomisti",
                     "password"    : "Drag0nst0ne",
                     "city"        : "King's Landing",
-                    "description" : "Stannis Baratheon",
-                    "groups"      : ["Baratheon","Small Council"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "shkelqim ekonomisti",
+                    "groups"      : ["ekonomisti","Bordi Drejtues"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "petyer.baelish" : {
-                    "firstname"   : "Petyer",
-                    "surname"     : "Baelish",
+                "petrit.balani" : {
+                    "firstname"   : "petrit",
+                    "surname"     : "balani",
                     "password"    : "@littlefinger@",
                     "city"        : "King's Landing",
-                    "description" : "Petyer Baelish",
-                    "groups"      : ["Small Council"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "petrit balani",
+                    "groups"      : ["Bordi Drejtues"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "lord.varys" : {
+                "lord.krasniqi" : {
                     "firstname"   : "Lord",
-                    "surname"     : "Varys",
+                    "surname"     : "krasniqi",
                     "password"    : "_W1sper_$",
                     "city"        : "King's Landing",
-                    "description" : "Lord Varys",
-                    "groups"      : ["Small Council"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "Lord krasniqi",
+                    "groups"      : ["Bordi Drejtues"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "maester.pycelle" : {
-                    "firstname"   : "Maester",
-                    "surname"     : "Pycelle",
-                    "password"    : "MaesterOfMaesters",
+                "mirjan.kastrati" : {
+                    "firstname"   : "mirjan",
+                    "surname"     : "kastrati",
+                    "password"    : "mirjanOfmirjans",
                     "city"        : "King's Landing",
-                    "description" : "Maester Pycelle",
-                    "groups"      : ["Small Council"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "mirjan kastrati",
+                    "groups"      : ["Bordi Drejtues"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 }
             }
         }

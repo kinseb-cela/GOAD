@@ -25,7 +25,7 @@ extensions/
     "name": "my extension",
     "description": "Add an extension to goad lab",
     "machines": [
-        "ws02 (myvm.sevenkingdoms.local)"
+        "ws02 (myvm.pretera.local)"
     ],
     "compatibility": [
         "GOAD",
@@ -161,7 +161,7 @@ extensions/
         ```
         "vmname" = {
             name               = "vmname"
-            domain             = "sevenkingdoms.local"
+            domain             = "pretera.local"
             windows_sku        = "2019-Datacenter"
             ami                = "ami-018ebfbd6b0a4c605"
             instance_type      = "t2.medium"

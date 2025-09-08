@@ -1,7 +1,7 @@
 Add-Type -Path "C:\Program Files\Microsoft\Exchange Server\V15\Bin\Microsoft.Exchange.WebServices.dll"
 
 # mailbox parameters
-$EmailAddress = "lysa.arryn@sevenkingdoms.local"
+$EmailAddress = "lysa.arryn@pretera.local"
 $Password = "rob1nIsMyHeart"
 $EwsUrl = "https://the-eyrie/EWS/Exchange.asmx"
 $DownloadPath = "$env:TEMP\ExchangeAttachments\"

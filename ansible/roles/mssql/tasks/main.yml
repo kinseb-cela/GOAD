@@ -67,9 +67,9 @@
   when: not SQLSVCACCOUNT == "NT AUTHORITY\\NETWORK SERVICE"
 
 # - name: Setup service account
-# Set-ADUser -Identity "{{SQLSVCACCOUNT}}" -ServicePrincipalNames @{Add='MSSQLSvc/castelblack.north.sevenkingdoms.local'}
+# Set-ADUser -Identity "{{SQLSVCACCOUNT}}" -ServicePrincipalNames @{Add='MSSQLSvc/financa-srv-2.financa.pretera.local'}
 # Get-ADUser -Identity "{{SQLSVCACCOUNT}}" | Set-ADAccountControl -TrustedToAuthForDelegation $true
-# Set-ADUser -Identity "{{SQLSVCACCOUNT}}" -Add @{'msDS-AllowedToDelegateTo'=@('CIFS/winterfell.north.sevenkingdoms.local','CIFS/winterfell')}
+# Set-ADUser -Identity "{{SQLSVCACCOUNT}}" -Add @{'msDS-AllowedToDelegateTo'=@('CIFS/financa-dc.financa.pretera.local','CIFS/financa-dc')}
 
 # - name: check install already done
 #   win_stat:

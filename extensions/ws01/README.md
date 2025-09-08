@@ -1,7 +1,7 @@
 # WS01 extension (Workstation 01)
 
 - Extension Name: ws01
-- Description: Add a Windows 10 workstation to the lab GOAD or GOAD Light in the domain sevenkingdoms.local
+- Description: Add a Windows 10 workstation to the lab GOAD or GOAD Light in the domain pretera.local
 - Machine name : {{lab_name}}-WS01
 - Compatible with labs :
   - GOAD
@@ -11,10 +11,10 @@
   - hostname: casterlyrock 
   - Users:
     - Administrators :
-      - tywin.lannister
-      - jaime.lannister
+      - Tino.inxhinieri
+      - jani.inxhinieri
     - RDP Users:
-      - Lannister group
+      - inxhinieri group
 
 - Features :
   - run_as_ppl

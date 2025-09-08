@@ -1,4 +1,4 @@
 # https://www.thehacker.recipes/ad/movement/kerberos/delegations/constrained#with-protocol-transition
-Set-ADUser -Identity "jon.snow" -ServicePrincipalNames @{Add='CIFS/winterfell.north.sevenkingdoms.local'}
-Get-ADUser -Identity "jon.snow" | Set-ADAccountControl -TrustedToAuthForDelegation $true
-Set-ADUser -Identity "jon.snow" -Add @{'msDS-AllowedToDelegateTo'=@('CIFS/winterfell.north.sevenkingdoms.local','CIFS/winterfell')}
+Set-ADUser -Identity "jon.Sina" -ServicePrincipalNames @{Add='CIFS/financa-dc.financa.pretera.local'}
+Get-ADUser -Identity "jon.Sina" | Set-ADAccountControl -TrustedToAuthForDelegation $true
+Set-ADUser -Identity "jon.Sina" -Add @{'msDS-AllowedToDelegateTo'=@('CIFS/financa-dc.financa.pretera.local','CIFS/financa-dc')}

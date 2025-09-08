@@ -3,7 +3,7 @@
 # t2.xlarge = 4cpu / 16GB
 "dc01" = {
   name               = "dc01"
-  domain             = "sevenkingdoms.local"
+  domain             = "pretera.local"
   windows_sku        = "2019-Datacenter"
   ami                = "ami-03440f0d88fea1060"
   instance_type      = "t2.medium"
@@ -12,7 +12,7 @@
 }
 "dc02" = {
   name               = "dc02"
-  domain             = "north.sevenkingdoms.local"
+  domain             = "financa.pretera.local"
   windows_sku        = "2019-Datacenter"
   ami                = "ami-03440f0d88fea1060"
   instance_type      = "t2.medium"
@@ -21,7 +21,7 @@
 }
 "dc03" = {
   name               = "dc03"
-  domain             = "essos.local"
+  domain             = "siguria.local"
   windows_sku        = "2016-Datacenter"
   ami                = "ami-053492b4735046f1c"
   instance_type      = "t2.medium"
@@ -30,7 +30,7 @@
 }
 "srv02" = {
   name               = "srv02"
-  domain             = "north.sevenkingdoms.local"
+  domain             = "financa.pretera.local"
   windows_sku        = "2019-Datacenter"
   ami                = "ami-03440f0d88fea1060"
   instance_type      = "t2.medium"
@@ -39,7 +39,7 @@
 }
 "srv03" = {
   name               = "srv03"
-  domain             = "essos.local"
+  domain             = "siguria.local"
   windows_sku        = "2016-Datacenter"
   ami                = "ami-053492b4735046f1c"
   instance_type      = "t2.medium"

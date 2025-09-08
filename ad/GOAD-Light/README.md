@@ -2,7 +2,7 @@
 
 ![GOAD Light overview](../../docs/img/GOAD-Light_schema.png)
 
-This is a light version of goad without the essos domain. This lab was build for computer with less performance.
+This is a light version of goad without the siguria domain. This lab was build for computer with less performance.
 Missing scenarios:
 - cross forest exploitation (no more external forest)
 - mssql trusted link
@@ -11,16 +11,16 @@ Missing scenarios:
 
 ### Servers
 This lab is actually composed of three virtual machines:
-- **kingslanding** : DC01  running on Windows Server 2019 (with windefender enabled by default)
-- **winterfell**   : DC02  running on Windows Server 2019 (with windefender enabled by default)
-- **castelblack**  : SRV02 running on Windows Server 2019 (with windefender **disabled** by default)
+- **pretera-dc1** : DC01  running on Windows Server 2019 (with windefender enabled by default)
+- **financa-dc**   : DC02  running on Windows Server 2019 (with windefender enabled by default)
+- **financa-srv-2**  : SRV02 running on Windows Server 2019 (with windefender **disabled** by default)
 
-#### domain : north.sevenkingdoms.local
-- **winterfell**     : DC01
-- **castelblack**    : SRV02 : MSSQL / IIS
+#### domain : financa.pretera.local
+- **financa-dc**     : DC01
+- **financa-srv-2**    : SRV02 : MSSQL / IIS
 
-#### domain : sevenkingdoms.local
-- **kingslanding**   : DC02
+#### domain : pretera.local
+- **pretera-dc1**   : DC02
 
 
 The lab setup is automated using vagrant and ansible automation tools.
@@ -31,65 +31,65 @@ You can change the vm version in the Vagrantfile according to Stefan Scherer vag
 
 - You can find a lot of the available scenarios on [https://mayfly277.github.io/categories/ad/](https://mayfly277.github.io/categories/ad/)
 
-NORTH.SEVENKINGDOMS.LOCAL
-- STARKS:              RDP on WINTERFELL AND CASTELBLACK
-  - arya.stark:        Execute as user on mssql
-  - eddard.stark:      DOMAIN ADMIN NORTH/ (bot 5min) LLMRN request to do NTLM relay with responder
-  - catelyn.stark:     
-  - robb.stark:        bot (3min) RESPONDER LLMR
-  - sansa.stark:       
-  - brandon.stark:     ASREP_ROASTING
-  - rickon.stark:      
+financa.pretera.LOCAL
+- PrtrS:              RDP on financa-dc AND financa-srv-2
+  - Anisa.Prtr:        Execute as user on mssql
+  - Eduard.Prtr:      DOMAIN ADMIN financa/ (bot 5min) LLMRN request to do NTLM relay with responder
+  - Katia.Prtr:     
+  - Robert.Prtr:        bot (3min) RESPONDER LLMR
+  - Sanja.Prtr:       
+  - Brendon.Prtr:     ASREP_ROASTING
+  - Riki.Prtr:      
   - theon.greyjoy:
-  - jon.snow:          mssql admin / KERBEROASTING / group cross domain / mssql trusted link
+  - jon.Sina:          mssql admin / KERBEROASTING / group cross domain / mssql trusted link
   - hodor:             PASSWORD SPRAY (user=password)
-- NIGHT WATCH:         RDP on CASTELBLACK
-  - samwell.tarly:     Password in ldap description / mssql execute as login
-                       GPO abuse (Edit Settings on "STARKWALLPAPER" GPO)
-  - jon.snow:          (see starks)
-  - jeor.mormont:      (see mormont)
-- MORMONT:             RDP on CASTELBLACK
-  - jeor.mormont:      ACL writedacl-writeowner on group Night Watch
+- Specialist Eksport:         RDP on financa-srv-2
+  - Samir.Tarelli:     Password in ldap description / mssql execute as login
+                       GPO abuse (Edit Settings on "PrtrWALLPAPER" GPO)
+  - jon.Sina:          (see Prtrs)
+  - Jetar.Importet:      (see Importet)
+- Importet:             RDP on financa-srv-2
+  - Jetar.Importet:      ACL writedacl-writeowner on group Specialist Eksport
 - AcrossTheSea :       cross forest group
 
-SEVENKINGDOMS.LOCAL
-- LANISTERS
-  - tywin.lannister:   ACL forcechangepassword on jaime.lanister
-  - jaime.lannister:   ACL genericwrite-on-user joffrey.baratheon
-  - tyron.lannister:   ACL self-self-membership-on-group Small Council
-  - cersei.lannister:  DOMAIN ADMIN SEVENKINGDOMS
-- BARATHEON:           RDP on KINGSLANDING
-  - robert.baratheon:  DOMAIN ADMIN SEVENKINGDOMS
-  - joffrey.baratheon: ACL Write DACL on tyron.lannister
-  - renly.baratheon:
-  - stannis.baratheon: ACL genericall-on-computer kingslanding / ACL writeproperty-self-membership Domain Admins
-- SMALL COUNCIL :      ACL add Member to group dragon stone / RDP on KINGSLANDING
-  - petyer.baelish:    ACL writeproperty-on-group Domain Admins
-  - lord.varys:        ACL genericall-on-group Domain Admins / Acrossthenarrossea
-  - maester.pycelle:   ACL write owner on group Domain Admins
-- DRAGONSTONE :        ACL Write Owner on KINGSGUARD
-- KINGSGUARD :         ACL generic all on user stannis.baratheon
+pretera.LOCAL
+- EngineerS
+  - Tino.inxhinieri:   ACL forcechangepassword on jani.Engineer
+  - jani.inxhinieri:   ACL genericwrite-on-user joan.ekonomisti
+  - tritan.inxhinieri:   ACL self-self-membership-on-group Bordi Drejtues
+  - cezar.inxhinieri:  DOMAIN ADMIN pretera
+- ekonomisti:           RDP on pretera-dc1
+  - robert.ekonomisti:  DOMAIN ADMIN pretera
+  - joan.ekonomisti: ACL Write DACL on tritan.inxhinieri
+  - reni.ekonomisti:
+  - shkelqim.ekonomisti: ACL genericall-on-computer pretera-dc1 / ACL writeproperty-self-membership Domain Admins
+- Bordi Drejtues :      ACL add Member to group Drejtoria stone / RDP on pretera-dc1
+  - petrit.balani:    ACL writeproperty-on-group Domain Admins
+  - lord.krasniqi:        ACL genericall-on-group Domain Admins / Acrossthenarrossea
+  - mirjan.kastrati:   ACL write owner on group Domain Admins
+- Ekzekutivi :        ACL Write Owner on Burimet Njerezore
+- Burimet Njerezore :         ACL generic all on user shkelqim.ekonomisti
 - AccorsTheNarrowSea:       cross forest group
 
 
 ### Computers Users and group permissions
 
-- SEVENKINGDOMS
-  - DC01 : kingslanding.sevenkingdoms.local (Windows Server 2019) (SEVENKINGDOMS DC)
-    - Admins : robert.baratheon (U), cersei.lannister (U)
-    - RDP: Small Council (G)
+- pretera
+  - DC01 : pretera-dc1.pretera.local (Windows Server 2019) (pretera DC)
+    - Admins : robert.ekonomisti (U), cezar.inxhinieri (U)
+    - RDP: Bordi Drejtues (G)
 
-- NORTH
-  - DC02 : winterfell.north.sevenkingdoms.local (Windows Server 2019) (NORTH DC)
-    - Admins : eddard.stark (U), catelyn.stark (U), robb.stark (U)
-    - RDP: Stark(G)
+- financa
+  - DC02 : financa-dc.financa.pretera.local (Windows Server 2019) (financa DC)
+    - Admins : Eduard.Prtr (U), Katia.Prtr (U), Robert.Prtr (U)
+    - RDP: Prtr(G)
 
-  - SRV02 : castelblack.essos.local (Windows Server 2019) (IIS, MSSQL, SMB share)
-    - Admins: jeor.mormont (U)
-    - RDP: Night Watch (G), Mormont (G), Stark (G)
+  - SRV02 : financa-srv-2.siguria.local (Windows Server 2019) (IIS, MSSQL, SMB share)
+    - Admins: Jetar.Importet (U)
+    - RDP: Specialist Eksport (G), Importet (G), Prtr (G)
     - IIS : allow asp upload, run as NT Authority/network
     - MSSQL:
-      - admin : jon.snow
+      - admin : jon.Sina
       - impersonate : 
         - execute as login : samwel.tarlly -> sa
-        - execute as user : arya.stark -> dbo
+        - execute as user : Anisa.Prtr -> dbo

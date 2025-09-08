@@ -2,15 +2,15 @@
     "lab_extension" : {
         "hosts" : {
           "lx01" : {
-              "hostname" : "dragonstone", 
+              "hostname" : "Ekzekutivi", 
               "type" : "server",
               "os": "linux",
               "local_admin_password": "HGLXP@ssw_rd$",
-              "domain" : "sevenkingdoms.local", 
-              "path" : "DC=sevenkingdoms,DC=local",
+              "domain" : "pretera.local", 
+              "path" : "DC=pretera,DC=local",
               "local_groups" : {
-                  "sudoers" : ["Baratheon"],
-                  "ssh" : ["Lannister", "Baratheon"]
+                  "sudoers" : ["ekonomisti"],
+                  "ssh" : ["inxhinieri", "ekonomisti"]
               },
               "security": [""],
               "security_vars": {}

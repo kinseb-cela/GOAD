@@ -2,43 +2,43 @@
 "lab" : {
     "hosts" : {
         "dc01" : {
-            "hostname" : "kingslanding",
+            "hostname" : "pretera-dc1",
             "type" : "dc",
             "local_admin_password": "8dCT-DJjgScp",
-            "domain" : "sevenkingdoms.local",
-            "path" : "DC=sevenkingdoms,DC=local",
+            "domain" : "pretera.local",
+            "path" : "DC=pretera,DC=local",
             "local_groups" : {
                 "Administrators" : [
-                    "sevenkingdoms\\robert.baratheon",
-                    "sevenkingdoms\\cersei.lannister",
-                    "sevenkingdoms\\DragonRider"
+                    "pretera\\robert.ekonomisti",
+                    "pretera\\cezar.inxhinieri",
+                    "pretera\\HelpDesk"
                 ],
                 "Remote Desktop Users" : [
-                    "sevenkingdoms\\Small Council",
-                    "sevenkingdoms\\Baratheon"
+                    "pretera\\Bordi Drejtues",
+                    "pretera\\ekonomisti"
                 ]
             },
             "scripts" : ["sidhistory.ps1"],
             "vulns" : ["disable_firewall", "adcs_esc10_case1", "adcs_esc10_case2"],
             "security": ["account_is_sensitive"],
             "security_vars": {
-                "account_is_sensitive" : { "renly": {"account" : "renly.baratheon"} }
+                "account_is_sensitive" : { "reni": {"account" : "reni.ekonomisti"} }
             }
         },
         "dc02" : {
-            "hostname" : "winterfell",
+            "hostname" : "financa-dc",
             "type" : "dc",
             "local_admin_password": "NgtI75cKV+Pu",
-            "domain" : "north.sevenkingdoms.local",
-            "path" : "DC=north,DC=sevenkingdoms,DC=local",
+            "domain" : "financa.pretera.local",
+            "path" : "DC=financa,DC=pretera,DC=local",
             "local_groups" : {
                 "Administrators" : [
-                    "north\\eddard.stark",
-                    "north\\catelyn.stark",
-                    "north\\robb.stark"
+                    "financa\\Eduard.Prtr",
+                    "financa\\Katia.Prtr",
+                    "financa\\Robert.Prtr"
                 ],
                 "Remote Desktop Users" : [
-                    "north\\Stark"
+                    "financa\\Prtr"
                 ]
             },
             "scripts" : [
@@ -56,16 +56,16 @@
                     "setup": "c:\\setup"
                 },
                 "credentials" : {
-                    "TERMSRV/castelblack": {
-                        "username" : "north\\robb.stark",
+                    "TERMSRV/financa-srv-2": {
+                        "username" : "financa\\Robert.Prtr",
                         "secret"   : "sexywolfy",
-                        "runas"    : "north\\robb.stark",
+                        "runas"    : "financa\\Robert.Prtr",
                         "runas_password" : "sexywolfy"
                     }
                 },
                 "autologon" : {
-                    "robb.stark" : {
-                        "username" : "north\\robb.stark",
+                    "Robert.Prtr" : {
+                        "username" : "financa\\Robert.Prtr",
                         "password" : "sexywolfy"
                     }
                 },
@@ -86,20 +86,20 @@
             }
         },
         "srv02" : {
-            "hostname" : "castelblack",
+            "hostname" : "financa-srv-2",
             "type" : "server",
             "local_admin_password": "NgtI75cKV+Pu",
-            "domain" : "north.sevenkingdoms.local",
-            "path" : "DC=north,DC=sevenkingdoms,DC=local",
+            "domain" : "financa.pretera.local",
+            "path" : "DC=financa,DC=pretera,DC=local",
             "use_laps": false,
             "local_groups" : {
                 "Administrators" : [
-                    "north\\jeor.mormont"
+                    "financa\\Jetar.Importet"
                 ],
                 "Remote Desktop Users" : [
-                    "north\\Night Watch",
-                    "north\\Mormont",
-                    "north\\Stark"
+                    "financa\\Specialist Eksport",
+                    "financa\\Importet",
+                    "financa\\Prtr"
                 ]
             },
             "scripts" : [],
@@ -115,8 +115,8 @@
                         "dest" : "C:\\inetpub\\"
                     },
                     "letter_in_shares": {
-                        "src" : "srv02/all/arya.txt",
-                        "dest": "C:\\shares\\all\\arya.txt"
+                        "src" : "srv02/all/Anisa.txt",
+                        "dest": "C:\\shares\\all\\Anisa.txt"
                     }
                 },
                 "permissions" : {
@@ -130,8 +130,8 @@
                     "thewall" : {
                         "path"   : "C:\\thewall",
                         "list"   : "yes",
-                        "full"   : "NORTH\\Stark",
-                        "change" : "NORTH\\jon.snow,NORTH\\samwell.tarly",
+                        "full"   : "financa\\Prtr",
+                        "change" : "financa\\jon.Sina,financa\\Samir.Tarelli",
                         "read"   : "Users"
                     }
                 }
@@ -140,55 +140,55 @@
                 "sa_password": "Sup1_sa_P@ssw0rd!",
                 "svcaccount" : "sql_svc",
                 "sysadmins" : [
-                    "NORTH\\jon.snow"
+                    "financa\\jon.Sina"
                 ],
                 "executeaslogin" : {
-                    "NORTH\\samwell.tarly" : "sa",
-                    "NORTH\\brandon.stark" :  "NORTH\\jon.snow"
+                    "financa\\Samir.Tarelli" : "sa",
+                    "financa\\Brendon.Prtr" :  "financa\\jon.Sina"
                 },
                 "executeasuser" : {
-                    "arya_master_dbo": {
-                        "user": "NORTH\\arya.stark",
+                    "Anisa_master_dbo": {
+                        "user": "financa\\Anisa.Prtr",
                         "db"  : "master",
                         "impersonate" : "dbo"
                     },
-                    "arya_dbms_dbo": {
-                        "user": "NORTH\\arya.stark",
+                    "Anisa_dbms_dbo": {
+                        "user": "financa\\Anisa.Prtr",
                         "db"  : "msdb",
                         "impersonate" : "dbo"
                     }
                 },
                 "linked_servers": {
-                    "BRAAVOS" : {
-                        "data_src": "braavos.essos.local",
+                    "siguria-srv-1" : {
+                        "data_src": "siguria-srv-1.siguria.local",
                         "users_mapping": [
-                            {"local_login": "NORTH\\jon.snow","remote_login": "sa", "remote_password": "sa_P@ssw0rd!Ess0s"}
+                            {"local_login": "financa\\jon.Sina","remote_login": "sa", "remote_password": "sa_P@ssw0rd!Ess0s"}
                         ]
                     }
                 }
             }
         },
         "dc03" : {
-            "hostname" : "meereen",
+            "hostname" : "siguria-dc",
             "type" : "dc",
             "local_admin_password": "Ufe-bVXSx9rk",
-            "domain" : "essos.local",
-            "path" : "DC=essos,DC=local",
+            "domain" : "siguria.local",
+            "path" : "DC=siguria,DC=local",
             "local_groups" : {
                 "Administrators" : [
-                    "essos\\daenerys.targaryen",
-                    "essos\\greatmaster"
+                    "siguria\\damian.ekspertet",
+                    "siguria\\greatmaster"
                 ],
                 "Remote Desktop Users" : [
-                    "essos\\Targaryen"
+                    "siguria\\ekspertet"
                 ]
             },
             "scripts" : ["asrep_roasting2.ps1"],
             "vulns" : ["ntlmdowngrade", "disable_firewall",  "adcs_esc7", "adcs_esc13", "adcs_esc15"],
             "vulns_vars" : {
                 "adcs_esc7": {
-                    "viserys": {
-                        "ca_manager": "essos\\viserys.targaryen"
+                    "visjan": {
+                        "ca_manager": "siguria\\visjan.ekspertet"
                     }
                 },
                 "adcs_esc13": {
@@ -200,19 +200,19 @@
             }
         },
         "srv03" : {
-            "hostname" : "braavos",
+            "hostname" : "siguria-srv-1",
             "type" : "server",
             "local_admin_password": "978i2pF43UJ-",
-            "domain" : "essos.local",
-            "path" : "DC=essos,DC=local",
+            "domain" : "siguria.local",
+            "path" : "DC=siguria,DC=local",
             "use_laps": true,
             "local_groups" : {
                 "Administrators" : [
-                    "essos\\khal.drogo"
+                    "siguria\\Keljan.Dobra"
                 ]
             },
             "Remote Desktop Users" : [
-                "essos\\Dothraki"
+                "siguria\\Llogaria"
             ],
             "scripts" : [],
             "vulns" : ["openshares","disable_firewall", "adcs_esc6", "adcs_esc11"],
@@ -221,17 +221,17 @@
                 "sa_password": "sa_P@ssw0rd!Ess0s",
                 "svcaccount" : "sql_svc",
                 "sysadmins" : [
-                    "ESSOS\\khal.drogo"
+                    "siguria\\Keljan.Dobra"
                 ],
                 "executeaslogin" : {
-                    "ESSOS\\jorah.mormont" : "sa"
+                    "siguria\\jorah.Importet" : "sa"
                 },
                 "executeasuser" : {},
                 "linked_servers": {
-                    "CASTELBLACK" : {
-                        "data_src": "castelblack.north.sevenkingdoms.local",
+                    "financa-srv-2" : {
+                        "data_src": "financa-srv-2.financa.pretera.local",
                         "users_mapping": [
-                            {"local_login": "ESSOS\\khal.drogo","remote_login": "sa", "remote_password": "Sup1_sa_P@ssw0rd!"}
+                            {"local_login": "siguria\\Keljan.Dobra","remote_login": "sa", "remote_password": "Sup1_sa_P@ssw0rd!"}
                         ]
                     }
                 }
@@ -239,122 +239,122 @@
         }
     },
     "domains" : {
-        "essos.local" : {
+        "siguria.local" : {
             "dc": "dc03",
             "domain_password" : "Ufe-bVXSx9rk",
-            "netbios_name": "ESSOS",
-            "ca_server": "Braavos",
-            "trust" : "sevenkingdoms.local",
-            "laps_path": "OU=Laps,DC=essos,DC=local",
+            "netbios_name": "siguria",
+            "ca_server": "siguria-srv-1",
+            "trust" : "pretera.local",
+            "laps_path": "OU=Laps,DC=siguria,DC=local",
             "organisation_units" : {
             },
             "laps_readers": [
-                "jorah.mormont",
+                "jorah.Importet",
                 "Spys"
             ],
             "groups" : {
                 "universal" : {
                     "greatmaster" : {
-                        "path" : "CN=Users,DC=essos,DC=local"
+                        "path" : "CN=Users,DC=siguria,DC=local"
                     }
                 },
                 "global" : {
-                    "Targaryen" : {
-                        "managed_by" : "viserys.targaryen",
-                        "path" : "CN=Users,DC=essos,DC=local"
+                    "ekspertet" : {
+                        "managed_by" : "visjan.ekspertet",
+                        "path" : "CN=Users,DC=siguria,DC=local"
                     },
-                    "Dothraki" : {
-                        "managed_by" : "khal.drogo",
-                        "path" : "CN=Users,DC=essos,DC=local"
+                    "Llogaria" : {
+                        "managed_by" : "Keljan.Dobra",
+                        "path" : "CN=Users,DC=siguria,DC=local"
                     },
-                    "Dragons":{
+                    "Drejtorit":{
                         "managed_by" : "Administrator",
-                        "path" : "CN=Users,DC=essos,DC=local"
+                        "path" : "CN=Users,DC=siguria,DC=local"
                     },
                     "QueenProtector":{
                         "managed_by" : "Administrator",
-                        "path" : "CN=Users,DC=essos,DC=local",
-                        "members" : ["ESSOS\\Dragons"]
+                        "path" : "CN=Users,DC=siguria,DC=local",
+                        "members" : ["siguria\\Drejtorit"]
                     },
                     "Domain Admins":{
                         "managed_by" : "Administrator",
-                        "path" : "CN=Users,DC=essos,DC=local",
-                        "members" : ["ESSOS\\QueenProtector"]
+                        "path" : "CN=Users,DC=siguria,DC=local",
+                        "members" : ["siguria\\QueenProtector"]
                     }
                 },
                 "domainlocal" : {
-                    "DragonsFriends" : {
-                        "managed_by" : "daenerys.targaryen",
-                        "path" : "CN=Users,DC=essos,DC=local"
+                    "DrejtoritFriends" : {
+                        "managed_by" : "damian.ekspertet",
+                        "path" : "CN=Users,DC=siguria,DC=local"
                     },
                     "Spys" : {
-                        "path" : "CN=Users,DC=essos,DC=local"
+                        "path" : "CN=Users,DC=siguria,DC=local"
                     }
                 }
             },
             "multi_domain_groups_member" : {
-                "DragonsFriends" : [
-                    "sevenkingdoms.local\\tyron.lannister",
-                    "essos.local\\daenerys.targaryen"
+                "DrejtoritFriends" : [
+                    "pretera.local\\tritan.inxhinieri",
+                    "siguria.local\\damian.ekspertet"
                 ],
                 "Spys" : [
-                    "sevenkingdoms.local\\Small Council"
+                    "pretera.local\\Bordi Drejtues"
                 ]
             },
             "gmsa" : {
                 "gmsa_account": {
-                    "gMSA_Name" : "gmsaDragon",
-                    "gMSA_FQDN" : "gmsaDragon.essos.local",
-                    "gMSA_SPNs" : ["HTTP/braavos", "HTTP/braavos.essos.local"],
-                    "gMSA_HostNames" : ["braavos"]
+                    "gMSA_Name" : "gmsaDrejtoria",
+                    "gMSA_FQDN" : "gmsaDrejtoria.siguria.local",
+                    "gMSA_SPNs" : ["HTTP/siguria-srv-1", "HTTP/siguria-srv-1.siguria.local"],
+                    "gMSA_HostNames" : ["siguria-srv-1"]
                 }
             },
             "acls" : {
-                "GenericAll_khal_viserys" : {"for": "khal.drogo", "to": "viserys.targaryen", "right": "GenericAll", "inheritance": "None"},
-                "GenericAll_spy_jorah" : {"for": "Spys", "to": "jorah.mormont", "right": "GenericAll", "inheritance": "None"},
-                "GenericAll_khal_esc4" : {"for": "khal.drogo", "to": "CN=ESC4,CN=Certificate Templates,CN=Public Key Services,CN=Services,CN=Configuration,DC=essos,DC=local", "right": "GenericAll", "inheritance": "None"},
-                "WriteProperty_petyer_domadmin" : {"for": "viserys.targaryen", "to": "jorah.mormont", "right": "WriteProperty", "inheritance": "All"},
-                "GenericWrite_DragonsFriends_braavos" : {"for": "DragonsFriends", "to": "braavos$", "right": "GenericWrite", "inheritance": "None"},
-                "GenericAll_missandei_khal" : {"for": "missandei", "to": "khal.drogo", "right": "GenericAll", "inheritance": "None"},
-                "GenericAll_gmsaDragon_drogo" : {"for": "gmsaDragon$", "to": "drogon", "right": "GenericAll", "inheritance": "None"},
-                "GenericWrite_missandei_viserys" : {"for": "missandei", "to": "viserys.targaryen", "right": "GenericWrite", "inheritance": "None"}
+                "GenericAll_Keljan_visjan" : {"for": "Keljan.Dobra", "to": "visjan.ekspertet", "right": "GenericAll", "inheritance": "None"},
+                "GenericAll_spy_jorah" : {"for": "Spys", "to": "jorah.Importet", "right": "GenericAll", "inheritance": "None"},
+                "GenericAll_Keljan_esc4" : {"for": "Keljan.Dobra", "to": "CN=ESC4,CN=Certificate Templates,CN=Public Key Services,CN=Services,CN=Configuration,DC=siguria,DC=local", "right": "GenericAll", "inheritance": "None"},
+                "WriteProperty_petrit_domadmin" : {"for": "visjan.ekspertet", "to": "jorah.Importet", "right": "WriteProperty", "inheritance": "All"},
+                "GenericWrite_DrejtoritFriends_siguria-srv-1" : {"for": "DrejtoritFriends", "to": "siguria-srv-1$", "right": "GenericWrite", "inheritance": "None"},
+                "GenericAll_missandei_Keljan" : {"for": "missandei", "to": "Keljan.Dobra", "right": "GenericAll", "inheritance": "None"},
+                "GenericAll_gmsaDrejtoria_Dobra" : {"for": "gmsaDrejtoria$", "to": "Dobran", "right": "GenericAll", "inheritance": "None"},
+                "GenericWrite_missandei_visjan" : {"for": "missandei", "to": "visjan.ekspertet", "right": "GenericWrite", "inheritance": "None"}
             },
             "users" : {
-                "daenerys.targaryen" : {
-                    "firstname"   : "daenerys",
-                    "surname"     : "targaryen",
+                "damian.ekspertet" : {
+                    "firstname"   : "damian",
+                    "surname"     : "ekspertet",
                     "password"    : "BurnThemAll!", 
                     "city"        : "-",
-                    "description" : "Darnerys Targaryen",
-                    "groups"      : ["Targaryen", "Domain Admins"],
-                    "path"        : "CN=Users,DC=essos,DC=local"
+                    "description" : "Darnerys ekspertet",
+                    "groups"      : ["ekspertet", "Domain Admins"],
+                    "path"        : "CN=Users,DC=siguria,DC=local"
                 },
-                "viserys.targaryen" : {
-                    "firstname"   : "viserys",
-                    "surname"     : "targaryen",
+                "visjan.ekspertet" : {
+                    "firstname"   : "visjan",
+                    "surname"     : "ekspertet",
                     "password"    : "GoldCrown",
                     "city"        : "-",
-                    "description" : "Viserys Targaryen",
-                    "groups"      : ["Targaryen"],
-                    "path"        : "CN=Users,DC=essos,DC=local"
+                    "description" : "visjan ekspertet",
+                    "groups"      : ["ekspertet"],
+                    "path"        : "CN=Users,DC=siguria,DC=local"
                 },
-                "khal.drogo" : {
-                    "firstname"   : "khal",
-                    "surname"     : "drogo",
+                "Keljan.Dobra" : {
+                    "firstname"   : "Keljan",
+                    "surname"     : "Dobra",
                     "password"    : "horse",
                     "city"        : "-",
-                    "description" : "Khal Drogo",
-                    "groups"      : ["Dothraki"],
-                    "path"        : "CN=Users,DC=essos,DC=local"
+                    "description" : "Keljan Dobra",
+                    "groups"      : ["Llogaria"],
+                    "path"        : "CN=Users,DC=siguria,DC=local"
                 },
-                "jorah.mormont" : {
+                "jorah.Importet" : {
                     "firstname"   : "jorah",
-                    "surname"     : "mormont",
+                    "surname"     : "Importet",
                     "password"    : "H0nnor!",
                     "city"        : "-",
-                    "description" : "Jorah Mormont",
-                    "groups"      : ["Targaryen"],
-                    "path"        : "CN=Users,DC=essos,DC=local"
+                    "description" : "Jorah Importet",
+                    "groups"      : ["ekspertet"],
+                    "path"        : "CN=Users,DC=siguria,DC=local"
                 },
                 "missandei" : {
                     "firstname"   : "missandei",
@@ -363,16 +363,16 @@
                     "city"        : "-",
                     "description" : "missandei",
                     "groups"      : [],
-                    "path"        : "CN=Users,DC=essos,DC=local"
+                    "path"        : "CN=Users,DC=siguria,DC=local"
                 },
-                "drogon" : {
-                    "firstname"   : "drogon",
+                "Dobran" : {
+                    "firstname"   : "Dobran",
                     "surname"     : "-",
                     "password"    : "Dracarys",
                     "city"        : "-",
-                    "description" : "drogon",
-                    "groups"      : ["Dragons"],
-                    "path"        : "CN=Users,DC=essos,DC=local"
+                    "description" : "Dobran",
+                    "groups"      : ["Drejtorit"],
+                    "path"        : "CN=Users,DC=siguria,DC=local"
                 },
                 "sql_svc" : {
                     "firstname"   : "sql",
@@ -381,147 +381,147 @@
                     "city"        : "-",
                     "description" : "sql service",
                     "groups"      : [],
-                    "path"        : "CN=Users,DC=essos,DC=local",
-                    "spns"        : ["MSSQLSvc/braavos.essos.local:1433","MSSQLSvc/braavos.essos.local"]
+                    "path"        : "CN=Users,DC=siguria,DC=local",
+                    "spns"        : ["MSSQLSvc/siguria-srv-1.siguria.local:1433","MSSQLSvc/siguria-srv-1.siguria.local"]
                 }
             }
         },
-        "north.sevenkingdoms.local" : {
+        "financa.pretera.local" : {
             "dc": "dc02",
             "domain_password" : "NgtI75cKV+Pu",
-            "netbios_name": "NORTH",
+            "netbios_name": "financa",
             "trust" : "",
-            "laps_path": "OU=Laps,DC=north,DC=sevenkingdoms,DC=local",
+            "laps_path": "OU=Laps,DC=financa,DC=pretera,DC=local",
             "organisation_units" : {
             },
             "groups" : {
                 "universal" : {},
                 "global" : {
-                    "Stark" : {
-                        "managed_by" : "eddard.stark",
-                        "path" : "CN=Users,DC=North,DC=sevenkingdoms,DC=local"
+                    "Prtr" : {
+                        "managed_by" : "Eduard.Prtr",
+                        "path" : "CN=Users,DC=financa,DC=pretera,DC=local"
                     },
-                    "Night Watch" : {
-                        "managed_by" : "jeor.mormont",
-                        "path" : "CN=Users,DC=North,DC=sevenkingdoms,DC=local"
+                    "Specialist Eksport" : {
+                        "managed_by" : "Jetar.Importet",
+                        "path" : "CN=Users,DC=financa,DC=pretera,DC=local"
                     },
-                    "Mormont" : {
-                        "managed_by" : "jeor.mormont",
-                        "path" : "CN=Users,DC=North,DC=sevenkingdoms,DC=local"
+                    "Importet" : {
+                        "managed_by" : "Jetar.Importet",
+                        "path" : "CN=Users,DC=financa,DC=pretera,DC=local"
                     }
                 },
                 "domainlocal" : {
                     "AcrossTheSea" : {
-                        "path" : "CN=Users,DC=North,DC=sevenkingdoms,DC=local"
+                        "path" : "CN=Users,DC=financa,DC=pretera,DC=local"
                     }
                 }
             },
             "multi_domain_groups_member" : {},
             "acls" : {
-                "anonymous_rpc" : {"for": "NT AUTHORITY\\ANONYMOUS LOGON", "to": "DC=North,DC=sevenkingdoms,DC=local", "right": "ReadProperty", "inheritance": "All"},
-                "anonymous_rpc2" : {"for": "NT AUTHORITY\\ANONYMOUS LOGON", "to": "DC=North,DC=sevenkingdoms,DC=local", "right": "GenericExecute", "inheritance": "All"}
+                "anonymous_rpc" : {"for": "NT AUTHORITY\\ANONYMOUS LOGON", "to": "DC=financa,DC=pretera,DC=local", "right": "ReadProperty", "inheritance": "All"},
+                "anonymous_rpc2" : {"for": "NT AUTHORITY\\ANONYMOUS LOGON", "to": "DC=financa,DC=pretera,DC=local", "right": "GenericExecute", "inheritance": "All"}
             },
             "users" : {
-                "arya.stark" : {
-                    "firstname"   : "Arya",
-                    "surname"     : "Stark",
+                "Anisa.Prtr" : {
+                    "firstname"   : "Anisa",
+                    "surname"     : "Prtr",
                     "password"    : "Needle",
-                    "city"        : "Winterfell",
-                    "description" : "Arya Stark",
-                    "groups"      : ["Stark"],
-                    "path"        : "CN=Users,DC=North,DC=sevenkingdoms,DC=local"
+                    "city"        : "financa-dc",
+                    "description" : "Anisa Prtr",
+                    "groups"      : ["Prtr"],
+                    "path"        : "CN=Users,DC=financa,DC=pretera,DC=local"
                 },
-                "eddard.stark" : {
-                    "firstname"   : "Eddard",
-                    "surname"     : "Stark",
+                "Eduard.Prtr" : {
+                    "firstname"   : "Eduard",
+                    "surname"     : "Prtr",
                     "password"    : "FightP3aceAndHonor!",
                     "city"        : "King's Landing",
-                    "description" : "Eddard Stark",
-                    "groups"      : ["Stark", "Domain Admins"],
-                    "path"        : "CN=Users,DC=North,DC=sevenkingdoms,DC=local"
+                    "description" : "Eduard Prtr",
+                    "groups"      : ["Prtr", "Domain Admins"],
+                    "path"        : "CN=Users,DC=financa,DC=pretera,DC=local"
                 },
-                "catelyn.stark" : {
-                    "firstname"   : "Catelyn",
-                    "surname"     : "Stark",
-                    "password"    : "robbsansabradonaryarickon",
+                "Katia.Prtr" : {
+                    "firstname"   : "Katia",
+                    "surname"     : "Prtr",
+                    "password"    : "RobertSanjabradonAnisaRiki",
                     "city"        : "King's Landing",
-                    "description" : "Catelyn Stark",
-                    "groups"      : ["Stark"],
-                    "path"        : "CN=Users,DC=North,DC=sevenkingdoms,DC=local"
+                    "description" : "Katia Prtr",
+                    "groups"      : ["Prtr"],
+                    "path"        : "CN=Users,DC=financa,DC=pretera,DC=local"
                 },
-                "robb.stark" : {
-                    "firstname"   : "Robb",
-                    "surname"     : "Stark",
+                "Robert.Prtr" : {
+                    "firstname"   : "Robert",
+                    "surname"     : "Prtr",
                     "password"    : "sexywolfy",
-                    "city"        : "Winterfell",
-                    "description" : "Robb Stark",
-                    "groups"      : ["Stark"],
-                    "path"        : "CN=Users,DC=North,DC=sevenkingdoms,DC=local"
+                    "city"        : "financa-dc",
+                    "description" : "Robert Prtr",
+                    "groups"      : ["Prtr"],
+                    "path"        : "CN=Users,DC=financa,DC=pretera,DC=local"
                 },
-                "sansa.stark" : {
-                    "firstname"   : "Sansa",
-                    "surname"     : "Stark",
+                "Sanja.Prtr" : {
+                    "firstname"   : "Sanja",
+                    "surname"     : "Prtr",
                     "password"    : "345ertdfg",
-                    "city"        : "Winterfell",
-                    "description" : "Sansa Stark",
-                    "groups"      : ["Stark"],
-                    "path"        : "CN=Users,DC=North,DC=sevenkingdoms,DC=local",
-                    "spns"        : ["HTTP/eyrie.north.sevenkingdoms.local"]
+                    "city"        : "financa-dc",
+                    "description" : "Sanja Prtr",
+                    "groups"      : ["Prtr"],
+                    "path"        : "CN=Users,DC=financa,DC=pretera,DC=local",
+                    "spns"        : ["HTTP/eyrie.financa.pretera.local"]
                 },
-                "brandon.stark" : {
-                    "firstname"   : "Brandon",
-                    "surname"     : "Stark",
+                "Brendon.Prtr" : {
+                    "firstname"   : "Brendon",
+                    "surname"     : "Prtr",
                     "password"    : "iseedeadpeople",
-                    "city"        : "Winterfell",
-                    "description" : "Brandon Stark",
-                    "groups"      : ["Stark"],
-                    "path"        : "CN=Users,DC=North,DC=sevenkingdoms,DC=local"
+                    "city"        : "financa-dc",
+                    "description" : "Brendon Prtr",
+                    "groups"      : ["Prtr"],
+                    "path"        : "CN=Users,DC=financa,DC=pretera,DC=local"
                 },
-                "rickon.stark" : {
-                    "firstname"   : "Rickon",
-                    "surname"     : "Stark",
+                "Riki.Prtr" : {
+                    "firstname"   : "Riki",
+                    "surname"     : "Prtr",
                     "password"    : "Winter2022",
-                    "city"        : "Winterfell",
-                    "description" : "Rickon Stark",
-                    "groups"      : ["Stark"],
-                    "path"        : "CN=Users,DC=North,DC=sevenkingdoms,DC=local"
+                    "city"        : "financa-dc",
+                    "description" : "Riki Prtr",
+                    "groups"      : ["Prtr"],
+                    "path"        : "CN=Users,DC=financa,DC=pretera,DC=local"
                 },
                 "hodor" : {
                     "firstname"   : "hodor",
                     "surname"     : "hodor",
                     "password"    : "hodor",
-                    "city"        : "Winterfell",
+                    "city"        : "financa-dc",
                     "description" : "Brainless Giant",
-                    "groups"      : ["Stark"],
-                    "path"        : "CN=Users,DC=North,DC=sevenkingdoms,DC=local"
+                    "groups"      : ["Prtr"],
+                    "path"        : "CN=Users,DC=financa,DC=pretera,DC=local"
                 },
-                "jon.snow" : {
+                "jon.Sina" : {
                     "firstname"   : "Jon",
-                    "surname"     : "Snow",
+                    "surname"     : "Sina",
                     "password"    : "iknownothing",
                     "city"        : "Castel Black",
-                    "description" : "Jon Snow",
-                    "groups"      : ["Stark", "Night Watch"],
-                    "path"        : "CN=Users,DC=North,DC=sevenkingdoms,DC=local",
-                    "spns"        : ["HTTP/thewall.north.sevenkingdoms.local"]
+                    "description" : "Jon Sina",
+                    "groups"      : ["Prtr", "Specialist Eksport"],
+                    "path"        : "CN=Users,DC=financa,DC=pretera,DC=local",
+                    "spns"        : ["HTTP/thewall.financa.pretera.local"]
                 },
-                "samwell.tarly" : {
-                    "firstname"   : "Samwell",
-                    "surname"     : "Tarly",
+                "Samir.Tarelli" : {
+                    "firstname"   : "Samir",
+                    "surname"     : "Tarelli",
                     "password"    : "Heartsbane",
                     "city"        : "Castel Black",
-                    "description" : "Samwell Tarly (Password : Heartsbane)",
-                    "groups"      : ["Night Watch"],
-                    "path"        : "CN=Users,DC=North,DC=sevenkingdoms,DC=local"
+                    "description" : "Samir Tarelli (Password : Heartsbane)",
+                    "groups"      : ["Specialist Eksport"],
+                    "path"        : "CN=Users,DC=financa,DC=pretera,DC=local"
                 },
-                "jeor.mormont" : {
-                    "firstname"   : "Jeor",
-                    "surname"     : "Mormont",
+                "Jetar.Importet" : {
+                    "firstname"   : "Jetar",
+                    "surname"     : "Importet",
                     "password"    : "_L0ngCl@w_",
                     "city"        : "Castel Black",
-                    "description" : "Jeor Mormont",
-                    "groups"      : ["Night Watch", "Mormont"],
-                    "path"        : "CN=Users,DC=North,DC=sevenkingdoms,DC=local"
+                    "description" : "Jetar Importet",
+                    "groups"      : ["Specialist Eksport", "Importet"],
+                    "path"        : "CN=Users,DC=financa,DC=pretera,DC=local"
                 },
                 "sql_svc" : {
                     "firstname"   : "sql",
@@ -530,175 +530,175 @@
                     "city"        : "-",
                     "description" : "sql service",
                     "groups"      : [],
-                    "path"        : "CN=Users,DC=North,DC=sevenkingdoms,DC=local",
-                    "spns"        : ["MSSQLSvc/castelblack.north.sevenkingdoms.local:1433","MSSQLSvc/castelblack.north.sevenkingdoms.local"]
+                    "path"        : "CN=Users,DC=financa,DC=pretera,DC=local",
+                    "spns"        : ["MSSQLSvc/financa-srv-2.financa.pretera.local:1433","MSSQLSvc/financa-srv-2.financa.pretera.local"]
                 }
             }
         },
-        "sevenkingdoms.local" : {
+        "pretera.local" : {
             "dc": "dc01",
             "domain_password" : "8dCT-DJjgScp",
-            "netbios_name": "SEVENKINGDOMS",
-            "trust" : "essos.local",
-            "laps_path": "OU=Laps,DC=sevenkingdoms,DC=local",
+            "netbios_name": "pretera",
+            "trust" : "siguria.local",
+            "laps_path": "OU=Laps,DC=pretera,DC=local",
             "organisation_units" : {
-                "Vale"        : { "path" : "DC=sevenkingdoms,DC=local"},
-                "IronIslands" : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Riverlands"  : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Crownlands"  : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Stormlands"  : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Westerlands" : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Reach"       : { "path" : "DC=sevenkingdoms,DC=local"},
-                "Dorne"       : { "path" : "DC=sevenkingdoms,DC=local"}
+                "Vale"        : { "path" : "DC=pretera,DC=local"},
+                "IronIslands" : { "path" : "DC=pretera,DC=local"},
+                "Riverlands"  : { "path" : "DC=pretera,DC=local"},
+                "bordi"  : { "path" : "DC=pretera,DC=local"},
+                "ekonomistet"  : { "path" : "DC=pretera,DC=local"},
+                "inxhinieret" : { "path" : "DC=pretera,DC=local"},
+                "Reach"       : { "path" : "DC=pretera,DC=local"},
+                "Dorne"       : { "path" : "DC=pretera,DC=local"}
             },
             "groups" : {
                 "universal" : {},
                 "global" : {
-                    "Lannister" : {
-                        "managed_by" : "tywin.lannister",
-                        "path" : "OU=Westerlands,DC=sevenkingdoms,DC=local"
+                    "inxhinieri" : {
+                        "managed_by" : "Tino.inxhinieri",
+                        "path" : "OU=inxhinieret,DC=pretera,DC=local"
                     },
-                    "Baratheon" : {
-                        "managed_by" : "robert.baratheon",
-                        "path" : "OU=Stormlands,DC=sevenkingdoms,DC=local"
+                    "ekonomisti" : {
+                        "managed_by" : "robert.ekonomisti",
+                        "path" : "OU=ekonomistet,DC=pretera,DC=local"
                     },
-                    "Small Council" : {
-                        "path" : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "Bordi Drejtues" : {
+                        "path" : "OU=bordi,DC=pretera,DC=local"
                     },
-                    "DragonStone" : {
-                        "path" : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "Ekzekutivi" : {
+                        "path" : "OU=bordi,DC=pretera,DC=local"
                     },
-                    "KingsGuard" : {
-                        "path" : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "Burimet Njerezore" : {
+                        "path" : "OU=bordi,DC=pretera,DC=local"
                     },
-                    "DragonRider" : {
-                        "path" : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "HelpDesk" : {
+                        "path" : "OU=bordi,DC=pretera,DC=local"
                     }
                 },
                 "domainlocal" : {
-                    "AcrossTheNarrowSea" : {
-                        "path" : "CN=Users,DC=sevenkingdoms,DC=local"
+                    "Webmaster" : {
+                        "path" : "CN=Users,DC=pretera,DC=local"
                     }
                 }
             },
             "multi_domain_groups_member" : {
-                "AcrossTheNarrowSea" : [
-                    "essos.local\\daenerys.targaryen"
+                "Webmaster" : [
+                    "siguria.local\\damian.ekspertet"
                 ]
             },
             "acls" : {
-                "forcechangepassword_tywin_jaime" : {"for": "tywin.lannister", "to": "jaime.lannister", "right": "Ext-User-Force-Change-Password", "inheritance": "None"},
-                "GenericWrite_on_user_jaimie_joffrey" : {"for": "jaime.lannister", "to": "joffrey.baratheon", "right": "GenericWrite", "inheritance": "None"},
-                "Writedacl_joffrey_tyron" : {"for": "joffrey.baratheon", "to": "tyron.lannister", "right": "WriteDacl", "inheritance": "None"},
-                "self-self-membership-on-group_tyron_small_council" : {"for": "tyron.lannister", "to": "Small Council", "right": "Ext-Self-Self-Membership", "inheritance": "None"},
-                "addmember_smallcouncil_DragonStone" : {"for": "Small Council", "to": "DragonStone", "right": "Ext-Write-Self-Membership", "inheritance": "All"},
-                "write_owner_dragonstone_kingsguard" : {"for": "DragonStone", "to": "KingsGuard", "right": "WriteOwner", "inheritance": "None"},
-                "GenericAll_kingsguard_stanis" : {"for": "KingsGuard", "to": "stannis.baratheon", "right": "GenericAll", "inheritance": "None"},
-                "GenericAll_stanis_dc" : {"for": "stannis.baratheon", "to": "kingslanding$", "right": "GenericAll", "inheritance": "None"},
-                "GenericAll_group_acrrosdom_dc" : {"for": "AcrossTheNarrowSea", "to": "kingslanding$", "right": "GenericAll", "inheritance": "None"},
-                "GenericAll_varys_domadmin" : {"for": "lord.varys", "to": "Domain Admins", "right": "GenericAll", "inheritance": "None"},
-                "GenericAll_varys_domadmin_holder" : {"for": "lord.varys", "to": "CN=AdminSDHolder,CN=System,DC=sevenkingdoms,DC=local", "right": "GenericAll", "inheritance": "None"},
-                "WriteDACL_renly_Crownlands" : {"for": "renly.baratheon", "to": "OU=Crownlands,DC=sevenkingdoms,DC=local", "right": "WriteDacl", "inheritance": "None"}
+                "forcechangepassword_Tino_jani" : {"for": "Tino.inxhinieri", "to": "jani.inxhinieri", "right": "Ext-User-Force-Change-Password", "inheritance": "None"},
+                "GenericWrite_on_user_jaimie_joan" : {"for": "jani.inxhinieri", "to": "joan.ekonomisti", "right": "GenericWrite", "inheritance": "None"},
+                "Writedacl_joan_tritan" : {"for": "joan.ekonomisti", "to": "tritan.inxhinieri", "right": "WriteDacl", "inheritance": "None"},
+                "self-self-membership-on-group_tritan_small_council" : {"for": "tritan.inxhinieri", "to": "Bordi Drejtues", "right": "Ext-Self-Self-Membership", "inheritance": "None"},
+                "addmember_smallcouncil_Ekzekutivi" : {"for": "Bordi Drejtues", "to": "Ekzekutivi", "right": "Ext-Write-Self-Membership", "inheritance": "All"},
+                "write_owner_Ekzekutivi_Burimet Njerezore" : {"for": "Ekzekutivi", "to": "Burimet Njerezore", "right": "WriteOwner", "inheritance": "None"},
+                "GenericAll_Burimet Njerezore_stanis" : {"for": "Burimet Njerezore", "to": "shkelqim.ekonomisti", "right": "GenericAll", "inheritance": "None"},
+                "GenericAll_stanis_dc" : {"for": "shkelqim.ekonomisti", "to": "pretera-dc1$", "right": "GenericAll", "inheritance": "None"},
+                "GenericAll_group_acrrosdom_dc" : {"for": "Webmaster", "to": "pretera-dc1$", "right": "GenericAll", "inheritance": "None"},
+                "GenericAll_krasniqi_domadmin" : {"for": "lord.krasniqi", "to": "Domain Admins", "right": "GenericAll", "inheritance": "None"},
+                "GenericAll_krasniqi_domadmin_holder" : {"for": "lord.krasniqi", "to": "CN=AdminSDHolder,CN=System,DC=pretera,DC=local", "right": "GenericAll", "inheritance": "None"},
+                "WriteDACL_reni_bordi" : {"for": "reni.ekonomisti", "to": "OU=bordi,DC=pretera,DC=local", "right": "WriteDacl", "inheritance": "None"}
             },
             "users" : {
-                "tywin.lannister" : {
-                    "firstname"   : "Tywin",
-                    "surname"     : "Lanister",
+                "Tino.inxhinieri" : {
+                    "firstname"   : "Tino",
+                    "surname"     : "Engineer",
                     "password"    : "powerkingftw135",
                     "city"        : "Casterly Rock",
-                    "description" : "Tywin Lanister",
-                    "groups"      : ["Lannister"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "Tino Engineer",
+                    "groups"      : ["inxhinieri"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "jaime.lannister" : {
-                    "firstname"   : "Jaime",
-                    "surname"     : "Lanister",
-                    "password"    : "cersei",
+                "jani.inxhinieri" : {
+                    "firstname"   : "jani",
+                    "surname"     : "Engineer",
+                    "password"    : "cezar",
                     "city"        : "King's Landing",
-                    "description" : "Jaime Lanister",
-                    "groups"      : ["Lannister"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "jani Engineer",
+                    "groups"      : ["inxhinieri"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "cersei.lannister" : {
-                    "firstname"   : "Cersei",
-                    "surname"     : "Lanister",
-                    "password"    : "il0vejaime",
+                "cezar.inxhinieri" : {
+                    "firstname"   : "cezar",
+                    "surname"     : "Engineer",
+                    "password"    : "il0vejani",
                     "city"        : "King's Landing",
-                    "description" : "Cersei Lanister",
-                    "groups"      : ["Lannister","Baratheon","Domain Admins","Small Council"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "cezar Engineer",
+                    "groups"      : ["inxhinieri","ekonomisti","Domain Admins","Bordi Drejtues"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "tyron.lannister" : {
-                    "firstname"   : "Tyron",
-                    "surname"     : "Lanister",
+                "tritan.inxhinieri" : {
+                    "firstname"   : "tritan",
+                    "surname"     : "Engineer",
                     "password"    : "Alc00L&S3x",
                     "city"        : "King's Landing",
-                    "description" : "Tyron Lanister",
-                    "groups"      : ["Lannister"],
-                    "path"        : "OU=Westerlands,DC=sevenkingdoms,DC=local"
+                    "description" : "tritan Engineer",
+                    "groups"      : ["inxhinieri"],
+                    "path"        : "OU=inxhinieret,DC=pretera,DC=local"
                 },
-                "robert.baratheon" : {
+                "robert.ekonomisti" : {
                     "firstname"   : "Robert",
-                    "surname"     : "Baratheon",
+                    "surname"     : "ekonomisti",
                     "password"    : "iamthekingoftheworld",
                     "city"        : "King's Landing",
-                    "description" : "Robert Lanister",
-                    "groups"      : ["Baratheon","Domain Admins","Small Council","Protected Users"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "Robert Engineer",
+                    "groups"      : ["ekonomisti","Domain Admins","Bordi Drejtues","Protected Users"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "joffrey.baratheon" : {
-                    "firstname"   : "Joffrey",
-                    "surname"     : "Baratheon",
+                "joan.ekonomisti" : {
+                    "firstname"   : "joan",
+                    "surname"     : "ekonomisti",
                     "password"    : "1killerlion",
                     "city"        : "King's Landing",
-                    "description" : "Joffrey Baratheon",
-                    "groups"      : ["Baratheon","Lannister"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "joan ekonomisti",
+                    "groups"      : ["ekonomisti","inxhinieri"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "renly.baratheon" : {
-                    "firstname"   : "Renly",
-                    "surname"     : "Baratheon",
+                "reni.ekonomisti" : {
+                    "firstname"   : "reni",
+                    "surname"     : "ekonomisti",
                     "password"    : "lorastyrell",
                     "city"        : "King's Landing",
-                    "description" : "Renly Baratheon",
-                    "groups"      : ["Baratheon","Small Council"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "reni ekonomisti",
+                    "groups"      : ["ekonomisti","Bordi Drejtues"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "stannis.baratheon" : {
-                    "firstname"   : "Stannis",
-                    "surname"     : "Baratheon",
+                "shkelqim.ekonomisti" : {
+                    "firstname"   : "shkelqim",
+                    "surname"     : "ekonomisti",
                     "password"    : "Drag0nst0ne",
                     "city"        : "King's Landing",
-                    "description" : "Stannis Baratheon",
-                    "groups"      : ["Baratheon","Small Council"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "shkelqim ekonomisti",
+                    "groups"      : ["ekonomisti","Bordi Drejtues"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "petyer.baelish" : {
-                    "firstname"   : "Petyer",
-                    "surname"     : "Baelish",
+                "petrit.balani" : {
+                    "firstname"   : "petrit",
+                    "surname"     : "balani",
                     "password"    : "@littlefinger@",
                     "city"        : "King's Landing",
-                    "description" : "Petyer Baelish",
-                    "groups"      : ["Small Council"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "petrit balani",
+                    "groups"      : ["Bordi Drejtues"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "lord.varys" : {
+                "lord.krasniqi" : {
                     "firstname"   : "Lord",
-                    "surname"     : "Varys",
+                    "surname"     : "krasniqi",
                     "password"    : "_W1sper_$",
                     "city"        : "King's Landing",
-                    "description" : "Lord Varys",
-                    "groups"      : ["Small Council"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "Lord krasniqi",
+                    "groups"      : ["Bordi Drejtues"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 },
-                "maester.pycelle" : {
-                    "firstname"   : "Maester",
-                    "surname"     : "Pycelle",
-                    "password"    : "MaesterOfMaesters",
+                "mirjan.kastrati" : {
+                    "firstname"   : "mirjan",
+                    "surname"     : "kastrati",
+                    "password"    : "mirjanOfmirjans",
                     "city"        : "King's Landing",
-                    "description" : "Maester Pycelle",
-                    "groups"      : ["Small Council"],
-                    "path"        : "OU=Crownlands,DC=sevenkingdoms,DC=local"
+                    "description" : "mirjan kastrati",
+                    "groups"      : ["Bordi Drejtues"],
+                    "path"        : "OU=bordi,DC=pretera,DC=local"
                 }
             }
         }

@@ -2,7 +2,7 @@
     "name": "ws01",
     "description": "Add an hardened workstation into the lab",
     "machines": [
-        "ws01 (casterlyrock.sevenkingdoms.local)"
+        "ws01 (casterlyrock.pretera.local)"
     ],
     "compatibility": [
         "GOAD",

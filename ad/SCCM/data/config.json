@@ -165,7 +165,7 @@
                 "dave" : {
                     "firstname"   : "dave",
                     "surname"     : "-",
-                    "password"    : "dragon",
+                    "password"    : "Drejtoria",
                     "city"        : "-",
                     "description" : "dave",
                     "groups"      : ["SCCM-Admins","RDPUsers"],

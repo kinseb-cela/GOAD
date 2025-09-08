@@ -70,41 +70,41 @@ Function SetAclExtended($for, $to, $right, $extendedRightGUID, $inheritance)
 
 # genericall-on-user
 # https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces#genericall-on-user
-SetAcl (Get-ADUser "tywin.lannister") (Get-ADUser "cersei.lannister") "GenericAll" "None"
+SetAcl (Get-ADUser "Tino.inxhinieri") (Get-ADUser "cezar.inxhinieri") "GenericAll" "None"
 
 # genericall-on-group
 # https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces#genericall-on-group
-SetAcl (Get-ADUser "lord.varys") (Get-ADGroup "Domain Admins") "GenericAll" "None"
+SetAcl (Get-ADUser "lord.krasniqi") (Get-ADGroup "Domain Admins") "GenericAll" "None"
 
 # genericall-genericwrite-write-on-computer
 # https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces#genericall-genericwrite-write-on-computer
-SetAcl (Get-ADUser "stannis.baratheon") (Get-ADComputer "kingslanding") "GenericAll" "None"
+SetAcl (Get-ADUser "shkelqim.ekonomisti") (Get-ADComputer "pretera-dc1") "GenericAll" "None"
 
 # writeproperty-on-group
 # https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces#writeproperty-on-group
-SetAcl (Get-ADUser "petyer.baelish") (Get-ADGroup "Domain Admins") "WriteProperty" "All"
+SetAcl (Get-ADUser "petrit.balani") (Get-ADGroup "Domain Admins") "WriteProperty" "All"
 
 # self-self-membership-on-group
 # https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces#self-self-membership-on-group
-SetAclExtended (Get-ADUser "tyron.lannister") (Get-ADGroup "Domain Admins") "Self" "bf9679c0-0de6-11d0-a285-00aa003049e2" "None"
+SetAclExtended (Get-ADUser "tritan.inxhinieri") (Get-ADGroup "Domain Admins") "Self" "bf9679c0-0de6-11d0-a285-00aa003049e2" "None"
 
 # writeproperty-self-membership
 # https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces#writeproperty-self-membership
-SetAclExtended (Get-ADUser "stannis.baratheon") (Get-ADGroup "Domain Admins") "WriteProperty" "bf9679c0-0de6-11d0-a285-00aa003049e2" "All"
+SetAclExtended (Get-ADUser "shkelqim.ekonomisti") (Get-ADGroup "Domain Admins") "WriteProperty" "bf9679c0-0de6-11d0-a285-00aa003049e2" "All"
 
 # forcechangepassword
 # https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces#forcechangepassword
 # https://docs.microsoft.com/fr-fr/windows/win32/adschema/r-user-change-password
-SetAclExtended (Get-ADUser "tywin.lannister") (Get-ADUser "jaime.lannister") "ExtendedRight" "00299570-246d-11d0-a768-00aa006e0529" "None"
+SetAclExtended (Get-ADUser "Tino.inxhinieri") (Get-ADUser "jani.inxhinieri") "ExtendedRight" "00299570-246d-11d0-a768-00aa006e0529" "None"
 
 # write owner on group
 # https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces#writeowner-on-group
-SetAcl (Get-ADUser "maester.pycelle") (Get-ADGroup "Domain Admins") "WriteOwner" "None"
+SetAcl (Get-ADUser "mirjan.kastrati") (Get-ADGroup "Domain Admins") "WriteOwner" "None"
 
 # genericwrite-on-user
 # https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces#genericwrite-on-user
-SetAcl (Get-ADUser "jaime.lannister") (Get-ADUser "cersei.lannister") "GenericWrite" "None"
+SetAcl (Get-ADUser "jani.inxhinieri") (Get-ADUser "cezar.inxhinieri") "GenericWrite" "None"
 
 # writedacl-writeowner
 # https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/abusing-active-directory-acls-aces#writedacl-writeowner
-SetAcl (Get-ADUser "tywin.lannister") (Get-ADGroup "Small Council") "WriteDacl" "None"
+SetAcl (Get-ADUser "Tino.inxhinieri") (Get-ADGroup "Bordi Drejtues") "WriteDacl" "None"

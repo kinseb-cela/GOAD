@@ -109,7 +109,7 @@ GOAD/aws/remote/192.168.56.X > install
 ```
 "dc01" = {
   name               = "dc01"
-  domain             = "sevenkingdoms.local"
+  domain             = "pretera.local"
   windows_sku        = "2019-Datacenter"
   ami                = "ami-018ebfbd6b0a4c605"
   instance_type      = "t2.medium"

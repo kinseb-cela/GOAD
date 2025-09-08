@@ -6,7 +6,7 @@
 - Extension name : `exchange`
 - Compatibility  : GOAD, GOAD-Light
 - Providers : virtualbox/azure/vmware/aws/ludus/proxmox
-- Add a machine  : srv01 (the-eyrie.sevenkingdoms.local)  (ip_range.21)
+- Add a machine  : srv01 (the-eyrie.pretera.local)  (ip_range.21)
 
 !!! warning "resources"
     Exchange is really HUGE, it will add a vm with at least 12Gb of RAM be sure your computer support it before install

@@ -1,7 +1,7 @@
 $task = '/c powershell c:\setup\readMail.ps1'
 $repeat = (New-TimeSpan -Minutes 1)
 $taskName = "exchange_bot"
-$user = "sevenkingdoms\lysa.arryn"
+$user = "pretera\lysa.arryn"
 $password = "rob1nIsMyHeart"
 $action = New-ScheduledTaskAction -Execute "cmd.exe" -Argument "$task"
 $trigger = New-ScheduledTaskTrigger -Once -At (Get-Date) -RepetitionInterval $repeat

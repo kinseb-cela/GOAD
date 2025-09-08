@@ -13,7 +13,7 @@
 
 
 # set delegation to child domain
-# Add-DnsServerZoneDelegation -Name "sevenkingdoms.local" -ChildZoneName "north" -NameServer "winterfell.north.sevenkingdoms.local" -IPAddress 192.168.10.11 -PassThru -Verbose
+# Add-DnsServerZoneDelegation -Name "pretera.local" -ChildZoneName "financa" -NameServer "financa-dc.financa.pretera.local" -IPAddress 192.168.10.11 -PassThru -Verbose
 # domain == parent domain
 # item == child domain
 - name: add dns delegation to child domain

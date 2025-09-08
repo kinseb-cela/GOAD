@@ -1,5 +1,5 @@
 # cypher script
-# $domain="sevenkingdoms.local"
+# $domain="pretera.local"
 # $EncryptionKeyBytes = New-Object Byte[] 32
 # [Security.Cryptography.RNGCryptoServiceProvider]::Create().GetBytes($EncryptionKeyBytes)
 # $EncryptionKeyBytes | Out-File "encryption.key"

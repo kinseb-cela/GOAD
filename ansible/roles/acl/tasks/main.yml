@@ -27,7 +27,7 @@
 # "ba33815a-4f93-4c76-87f3-57574bff8109" {$right = "Manage-SID-History"}
 # "1131f6ad-9c07-11d1-f79f-00c04fc2dcd2" {$right = "DS-Replication-Get-Changes-All"}
 
-#  Get-ADObject -SearchBase "CN=Extended-Rights,CN=Configuration,DC=essos,DC=local" -Filter * -Properties cn, ObjectGUID | Select-Object cn, ObjectGUID
+#  Get-ADObject -SearchBase "CN=Extended-Rights,CN=Configuration,DC=siguria,DC=local" -Filter * -Properties cn, ObjectGUID | Select-Object cn, ObjectGUID
 # Extended-Rights                               9b7d2c93-d499-4596-9ca3-a695b6be465c
 # Domain-Administer-Server                      e504244d-e1fd-488f-b37a-f314c05a7d32
 # User-Change-Password                          0fe73392-46e1-4731-ae36-ad5d6760e94b
